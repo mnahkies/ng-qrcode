@@ -141,34 +141,6 @@
           }
         }
       }
-    },
-    "ng-qrcode-demo-e2e": {
-      "root": "projects/ng-qrcode-demo-e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/ng-qrcode-demo-e2e/protractor.conf.js",
-            "devServerTarget": "ng-qrcode-demo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ng-qrcode-demo:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "projects/ng-qrcode-demo-e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "ng-qrcode"
