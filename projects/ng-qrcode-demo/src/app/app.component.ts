@@ -1,5 +1,4 @@
 import { Component } from "@angular/core"
-import { QRCodeErrorCorrectionLevel } from "qrcode"
 
 @Component({
   selector: "app-root",
@@ -11,7 +10,8 @@ export class AppComponent {
   value = "https://www.npmjs.com/package/ng-qrcode"
   size = "300"
   errorCorrectionLevel = "M"
-  errorCorrectionLevels: QRCodeErrorCorrectionLevel[] = ["L", "M", "Q", "H"]
+  // TODO refactor to QRCodeErrorCorrectionLevel after https://github.com/DefinitelyTyped/DefinitelyTyped/pull/35367
+  errorCorrectionLevels = ["L", "M", "Q", "H"]
 
   get example() {
     return `<qr-code value="${this.value}" size="${this.size}" errorCorrectionLevel="${this.errorCorrectionLevel}"></qr-code>`

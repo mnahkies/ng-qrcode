@@ -1,5 +1,5 @@
 import { Directive, Input, OnChanges, ViewContainerRef } from "@angular/core"
-import qrcode, { QRCodeErrorCorrectionLevel } from "qrcode"
+import qrcode from "qrcode"
 
 @Directive({
   // tslint:disable-next-line:directive-selector
@@ -13,8 +13,9 @@ export class QrCodeDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input("qrCodeVersion") version?: number
 
+  // TODO refactor to QRCodeErrorCorrectionLevel after https://github.com/DefinitelyTyped/DefinitelyTyped/pull/35367
   // tslint:disable-next-line:no-input-rename
-  @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel: QRCodeErrorCorrectionLevel = "M"
+  @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel = "M"
 
   @Input() width?: number
   @Input() height?: number
@@ -54,15 +55,13 @@ export class QrCodeDirective implements OnChanges {
       context.clearRect(0, 0, context.canvas.width, context.canvas.height)
     }
 
+    // TODO remove cast after https://github.com/DefinitelyTyped/DefinitelyTyped/pull/35367
     qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,
         errorCorrectionLevel: this.errorCorrectionLevel,
         width: this.width,
-      })
-      .catch((err: Error) => {
-        throw err
-      })
+      } as any)
   }
 
 }
