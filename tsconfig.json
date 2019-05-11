@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-qrcode": [
+        "dist/ng-qrcode"
+      ],
+      "ng-qrcode/*": [
+        "dist/ng-qrcode/*"
+      ]
+    }
   }
 }
