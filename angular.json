@@ -58,7 +58,7 @@
             "polyfills": "projects/ng-qrcode-demo/src/polyfills.ts",
             "tsConfig": "projects/ng-qrcode-demo/tsconfig.app.json",
             "assets": [
-              "projects/ng-qrcode-demo/src/favicon.ico",
+              "projects/ng-qrcode-demo/src/favicon.png",
               "projects/ng-qrcode-demo/src/assets"
             ],
             "styles": [
@@ -123,7 +123,7 @@
             ],
             "scripts": [],
             "assets": [
-              "projects/ng-qrcode-demo/src/favicon.ico",
+              "projects/ng-qrcode-demo/src/favicon.png",
               "projects/ng-qrcode-demo/src/assets"
             ]
           }

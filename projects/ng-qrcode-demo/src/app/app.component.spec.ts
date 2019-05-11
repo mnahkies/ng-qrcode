@@ -1,11 +1,12 @@
 import { TestBed } from "@angular/core/testing"
 import { AppComponent } from "./app.component"
+import { AppModule } from "./app.module"
 
 describe("AppComponent", () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
-        AppComponent,
+      imports: [
+        AppModule,
       ],
     }).compileComponents()
   })
@@ -14,18 +15,5 @@ describe("AppComponent", () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.debugElement.componentInstance
     expect(app).toBeTruthy()
-  })
-
-  it(`should have as title 'ng-qrcode-demo'`, () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    const app = fixture.debugElement.componentInstance
-    expect(app.title).toEqual("ng-qrcode-demo")
-  })
-
-  it("should render title in a h1 tag", () => {
-    const fixture = TestBed.createComponent(AppComponent)
-    fixture.detectChanges()
-    const compiled = fixture.debugElement.nativeElement
-    expect(compiled.querySelector("h1").textContent).toContain("Welcome to ng-qrcode-demo!")
   })
 })
