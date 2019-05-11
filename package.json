@@ -10,6 +10,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "cp ./README.md ./dist/ng-qrcode/",
     "test": "ng test",
     "lint": "ng lint"
   },

@@ -1,27 +1,58 @@
-# NgQrcode
+# Angular QR Code Generator
+Easy to use AOT compatible QR code generator for Angular projects.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+Features:
+* Compatible with Angular 7
+* Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
+  package to do the heavy lifting
+* Renders to HTML Canvas
 
-## Development server
+## Installation
+Add as a dependency to your angular application:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    npm install ng-qrcode --save
 
-## Code scaffolding
+## Usage
+Import into your consuming module (Eg: AppModule):
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+     import { QrCodeModule } from 'ng-qrcode';
+     
+     @NgModule({
+       imports: [
+         QrCodeModule
+       ]
+     })
 
-## Build
+### Component
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    <qr-code value="Yo world!" size="300" errorCorrectionLevel="M"></qr-code>
 
-## Running unit tests
+#### value: string (required)  
+The value to encode in the QR code, eg: a url
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### size: string | number (optional)
+An optional size in pixels to render at
 
-## Running end-to-end tests
+**Default:** automatic size based on the value provided (recommended)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### errorCorrectionLevel: string (optional)
+Controls the amount of redundant information included to make the QR code 
+more likely to scan correctly if it is dirty / damaged
 
-## Further help
+**Default:** "M"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Valid values: "L", "M", "Q", "H" - where "L" is the lowest 
+amount of redundancy, and "H" is the highest
+
+See: https://www.npmjs.com/package/qrcode#error-correction-level for further details
+
+# Footnote / Package History
+
+Pre-version 2.0.0 this package was developed by https://github.com/emin93 and used the `qrious`
+npm package to generate the QR Codes.
+
+The source for this was lost, and this repository is a re-write, first released 
+as v2.0.0 that uses the `qrcode` npm package to generate QR Codes.
+
+v2.0.0 should be backwards compatible, aside from a rename of the exported NgModule from 
+QRCodeModule -> QrCodeModule for consistency. 
