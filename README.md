@@ -46,6 +46,12 @@ amount of redundancy, and "H" is the highest
 
 See: https://www.npmjs.com/package/qrcode#error-correction-level for further details
 
+# Demo
+**[See running demo here](https://mnahkies.github.io/ng-qrcode/)**  
+
+A demo app is included in the repository under `projects/ng-qrcode-demo` which can be 
+run locally using `ng build && ng serve`
+
 # Footnote / Package History
 
 Pre-version 2.0.0 this package was developed by https://github.com/emin93 and used the `qrious`
