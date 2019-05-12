@@ -1,4 +1,8 @@
 # Angular QR Code Generator
+
+[![Build Status](https://travis-ci.org/mnahkies/ng-qrcode.svg?branch=master)](https://travis-ci.org/mnahkies/ng-qrcode)
+[![npm](https://img.shields.io/npm/v/ng-qrcode.svg)](https://www.npmjs.com/package/ng-qrcode)
+
 Easy to use AOT compatible QR code generator for Angular projects.
 
 Features:
