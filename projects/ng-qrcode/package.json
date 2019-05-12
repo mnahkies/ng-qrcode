@@ -1,10 +1,18 @@
 {
   "name": "ng-qrcode",
+  "description": "Simple AOT compatible QR code generator for your Angular project.",
   "version": "2.0.0",
   "license": "MIT",
+  "author": {
+    "name": "Michael Nahkies",
+    "email": "support@nahkies.co.nz"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mnahkies/ng-qrcode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
   "dependencies": {
     "qrcode": "^1.3.3"
@@ -12,5 +20,16 @@
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
-  }
+  },
+  "keywords": [
+    "qr",
+    "code",
+    "qrcode",
+    "qr-code",
+    "angular",
+    "angular2",
+    "ng",
+    "ngx",
+    "ng2"
+  ]
 }

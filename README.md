@@ -11,6 +11,8 @@ Features:
   package to do the heavy lifting
 * Renders to HTML Canvas
 
+**[Change Log](https://github.com/mnahkies/ng-qrcode/blob/master/CHANGES.md)**
+
 ## Installation
 Add as a dependency to your angular application:
 
@@ -58,7 +60,7 @@ run locally using `ng build && ng serve`
 
 # Footnote / Package History
 
-Pre-version 2.0.0 this package was developed by https://github.com/emin93 and used the `qrious`
+Pre-version 2.0.0 this package was developed by [emin93](https://github.com/emin93) and used the `qrious`
 npm package to generate the QR Codes.
 
 The source for this was lost, and this repository is a re-write, first released 
