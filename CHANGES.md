@@ -1,3 +1,6 @@
+# Next (unreleased)
+- Type error correction level correctly using string union rather than string
+
 # 2.0.0 - 2019-05-12
 - Re-written to use qrcode npm module to generate QR codes
   in browser using JavaScript

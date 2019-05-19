@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core"
+import { QrCodeErrorCorrectionLevel } from "./types"
 
 @Component({
   selector: "qr-code",
@@ -19,7 +20,6 @@ export class QrCodeComponent {
   @Input()
   size?: string | number
 
-  // TODO refactor to QRCodeErrorCorrectionLevel after https://github.com/DefinitelyTyped/DefinitelyTyped/pull/35367
   @Input()
-  errorCorrectionLevel?: string
+  errorCorrectionLevel?: QrCodeErrorCorrectionLevel
 }
