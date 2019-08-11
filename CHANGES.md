@@ -1,3 +1,6 @@
+# 3.0.1 - 2019-08-11
+- Amend README.md
+
 # 3.0.0 - 2019-08-11
 - Dependencies updated for Angular 8, Angular 7 support is maintained
 
