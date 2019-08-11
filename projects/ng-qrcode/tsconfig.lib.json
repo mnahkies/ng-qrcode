@@ -1,9 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/lib",
-    "target": "es2015",
-    "module": "es2015",
+    "outDir": "../../dist/out-tsc/lib",
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,

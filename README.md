@@ -11,7 +11,7 @@ Features:
   package to do the heavy lifting
 * Renders to HTML Canvas
 
-**[Change Log](https://github.com/mnahkies/ng-qrcode/blob/master/CHANGES.md)**
+**[Change Log](CHANGES.md)**
 
 ## Installation
 Add as a dependency to your angular application:
