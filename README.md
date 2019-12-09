@@ -58,6 +58,15 @@ See: https://www.npmjs.com/package/qrcode#error-correction-level for further det
 A demo app is included in the repository under `projects/ng-qrcode-demo` which can be 
 run locally using `ng build && ng serve`
 
+# Known/Common Issues
+
+## Reference Error 'global' is not defined
+Essentially in some cases Angular will bundle a version of the buffer library that is not
+compatible with web browsers if the 'global' object is not defined.
+
+This can be easily worked around, see comment here for options:
+https://github.com/mnahkies/ng-qrcode/issues/2#issuecomment-563414305
+
 # Footnote / Package History
 
 Pre-version 2.0.0 this package was developed by [emin93](https://github.com/emin93) and used the `qrious`
