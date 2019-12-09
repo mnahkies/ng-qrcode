@@ -1,3 +1,7 @@
+# 3.0.2 - 2019-12-13
+- Dependencies updated
+- Amend README.md to note workarounds for https://github.com/mnahkies/ng-qrcode/issues/2#issuecomment-563414305
+
 # 3.0.1 - 2019-08-11
 - Amend README.md
 
