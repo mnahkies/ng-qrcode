@@ -6,7 +6,7 @@
 Easy to use AOT compatible QR code generator for Angular projects.
 
 Features:
-* Compatible with Angular 7 and 8
+* Compatible with Angular 7, 8 and 9
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas
