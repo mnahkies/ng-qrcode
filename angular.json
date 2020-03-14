@@ -14,6 +14,11 @@
           "options": {
             "tsConfig": "projects/ng-qrcode/tsconfig.lib.json",
             "project": "projects/ng-qrcode/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-qrcode/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
@@ -52,6 +57,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/ng-qrcode-demo",
             "index": "projects/ng-qrcode-demo/src/index.html",
             "main": "projects/ng-qrcode-demo/src/main.ts",
@@ -89,6 +95,10 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
                 }
               ]
             }
@@ -143,5 +153,8 @@
       }
     }
   },
-  "defaultProject": "ng-qrcode"
+  "defaultProject": "ng-qrcode",
+  "cli": {
+    "analytics": "973384b3-6242-4947-9aae-a66f063a7508"
+  }
 }
