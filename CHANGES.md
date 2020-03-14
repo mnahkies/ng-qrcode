@@ -1,3 +1,8 @@
+# 3.1.0 - 2020-03-14
+- Support Angular 9
+- Dependencies updated
+- Export `QrCodeDirective` (though `QrCodeComponent` should be preferred)
+
 # 3.0.2 - 2019-12-13
 - Dependencies updated
 - Amend README.md to note workarounds for https://github.com/mnahkies/ng-qrcode/issues/2#issuecomment-563414305
