@@ -15,12 +15,12 @@
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
   "dependencies": {
-    "qrcode": "^1.4.4"
-  ,    "tslib": "^2.0.0"
-},
+    "qrcode": "^1.4.4",
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
-    "@angular/common": ">=7 <10",
-    "@angular/core": ">=7 <10"
+    "@angular/common": ">=7 <11",
+    "@angular/core": ">=7 <11"
   },
   "keywords": [
     "qr",
