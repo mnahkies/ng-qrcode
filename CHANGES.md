@@ -1,3 +1,7 @@
+# 3.2.0 - 2020-06-27
+- Support Angular 10
+- Dependencies updated
+
 # 3.1.0 - 2020-03-14
 - Support Angular 9
 - Dependencies updated
@@ -11,7 +15,7 @@
 - Amend README.md
 
 # 3.0.0 - 2019-08-11
-- Dependencies updated for Angular 8, Angular 7 support is maintained
+- Dependencies updated for Angular 8, Angular 7 support retained
 
 ** Breaking Changes **
 - Type error correction level correctly using string union rather than string.
@@ -20,7 +24,7 @@
 
 # 2.0.0 - 2019-05-12
 - Re-written to use qrcode npm module to generate QR codes
-  in browser using JavaScript
+  in browsers using JavaScript
   
 - Add errorCorrectionLevel input to qr-code component
 
