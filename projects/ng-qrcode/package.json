@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "qrcode": "^1.4.4"
-  },
+  ,    "tslib": "^2.0.0"
+},
   "peerDependencies": {
     "@angular/common": ">=7 <10",
     "@angular/core": ">=7 <10"

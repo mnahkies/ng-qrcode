@@ -70,8 +70,7 @@
             "styles": [
               "projects/ng-qrcode-demo/src/styles.scss"
             ],
-            "scripts": [],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
