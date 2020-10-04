@@ -1,7 +1,7 @@
 {
   "name": "ng-qrcode",
   "description": "Simple AOT compatible QR code generator for your Angular project.",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "license": "MIT",
   "author": {
     "name": "Michael Nahkies",
@@ -19,8 +19,8 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=7 <11",
-    "@angular/core": ">=7 <11"
+    "@angular/common": ">=10 <11",
+    "@angular/core": ">=10 <11"
   },
   "keywords": [
     "qr",

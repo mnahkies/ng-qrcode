@@ -1,6 +1,8 @@
-# 3.2.0 - 2020-06-27
+# 4.0.0 - 2020-09-04
 - Support Angular 10
 - Dependencies updated
+
+*BREAKING CHANGES:* Dropped support for angular versions prior to v10
 
 # 3.1.0 - 2020-03-14
 - Support Angular 9
