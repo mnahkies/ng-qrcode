@@ -1,3 +1,6 @@
+# 4.0.1 - 2020-09-04
+- Forgot to include README in 4.0.0
+
 # 4.0.0 - 2020-09-04
 - Support Angular 10
 - Dependencies updated
