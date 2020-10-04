@@ -3,6 +3,12 @@
     "tslint:recommended"
   ],
   "rules": {
+    "align": {
+      "options": [
+        "parameters",
+        "statements"
+      ]
+    },
     "ordered-imports": true,
     "arrow-return-shorthand": true,
     "array-type": [
