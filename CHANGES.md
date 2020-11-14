@@ -1,3 +1,6 @@
+# 4.1.0 - 2020-11-14
+- Support Angular 11
+
 # 4.0.1 - 2020-09-04
 - Forgot to include README in 4.0.0
 
