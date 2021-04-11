@@ -12,9 +12,21 @@ export class AppComponent {
   size = "300"
   errorCorrectionLevel: QrCodeErrorCorrectionLevel = "M"
   errorCorrectionLevels: QrCodeErrorCorrectionLevel[] = ["L", "M", "Q", "H"]
+  showImage = "no"
+  centerImageSize = ""
+
+  get centerImageSrc() {
+    return this.showImage === "yes" ? "./assets/angular-logo.png" : undefined
+  }
 
   get example() {
-    return `<qr-code value="${this.value}" size="${this.size}" errorCorrectionLevel="${this.errorCorrectionLevel}"></qr-code>`
+    return `
+<qr-code value="${this.value}"
+         size="${this.size}"
+         errorCorrectionLevel="${this.errorCorrectionLevel}"
+         centerImageSrc="${this.centerImageSrc}"
+         centerImageSize="${this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined}">
+</qr-code>`
   }
 
 }

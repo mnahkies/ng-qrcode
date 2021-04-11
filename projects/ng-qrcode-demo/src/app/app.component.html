@@ -32,6 +32,16 @@
       <select id="errorCorrectionLevel" name="errorCorrectionLevel" [(ngModel)]="errorCorrectionLevel">
         <option *ngFor="let value of errorCorrectionLevels" [value]="value">{{value}}</option>
       </select>
+
+      <label for="showImage">Show Image in Center?</label>
+      <select id="showImage" name="showImage" [(ngModel)]="showImage">
+        <option value="no">no</option>
+        <option value="yes">yes</option>
+      </select>
+
+      <label for="centerImageSize">Center Image Size</label>
+      <input id="centerImageSize" name="centerImageSize" [(ngModel)]="centerImageSize"/>
+
     </form>
 
     <h3>Usage:</h3>
@@ -40,7 +50,12 @@
 
     <h3>Result:</h3>
     <div class="container">
-      <qr-code [value]="value" [size]="size" [errorCorrectionLevel]="errorCorrectionLevel"></qr-code>
+      <qr-code [value]="value"
+               [size]="size"
+               [errorCorrectionLevel]="errorCorrectionLevel"
+               [centerImageSrc]="centerImageSrc"
+               [centerImageSize]="centerImageSize ? this.centerImageSize : undefined">
+      </qr-code>
     </div>
 
   </div>

@@ -52,6 +52,24 @@ amount of redundancy, and "H" is the highest
 
 See: https://www.npmjs.com/package/qrcode#error-correction-level for further details
 
+#### centerImageSrc: string (optional)
+A URI suitable to use an a [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) src
+property to load and render in the center of the QR code.
+
+**Note:** the image will obscure part of the QR code, and therefore you should err on
+the side of a higher error correction level, anecdotally when the size is less than 1/4
+of the size of the code, with at least "M" error correction, it is generally still scannable.
+
+#### centerImageSize: string | number (optional)
+An optional size in pixels to render the center image.
+
+**Default:** 60
+
+### Directive
+If the provided component is not flexible enough for you, there is also a [directive](projects/ng-qrcode/src/lib/qr-code.directive.ts)
+provided that is used by the [component](projects/ng-qrcode/src/lib/qr-code.component.ts) under the hood, which provides finer 
+grain control.
+
 # Demo
 **[See running demo here](https://mnahkies.github.io/ng-qrcode/)**  
 

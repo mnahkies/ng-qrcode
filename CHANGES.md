@@ -1,3 +1,8 @@
+# 4.2.0 - TBC
+- Support rendering an image in the center of the generated QR code
+- Use default error correction level correctly if undefined is passed to the input
+- Documentation improvements
+
 # 4.1.0 - 2020-11-14
 - Support Angular 11
 
