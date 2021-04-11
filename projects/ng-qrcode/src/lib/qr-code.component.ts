@@ -7,7 +7,11 @@ import { QrCodeErrorCorrectionLevel } from "./types"
     <canvas *ngIf="value"
             [qrCode]="value"
             [qrCodeErrorCorrectionLevel]="errorCorrectionLevel"
-            [width]="size" [height]="size">
+            [qrCodeCenterImageSrc]="centerImageSrc"
+            [qrCodeCenterImageWidth]="centerImageSize"
+            [qrCodeCenterImageHeight]="centerImageSize"
+            [width]="size"
+            [height]="size">
     </canvas>
   `,
   styles: [],
@@ -22,4 +26,11 @@ export class QrCodeComponent {
 
   @Input()
   errorCorrectionLevel?: QrCodeErrorCorrectionLevel
+
+  @Input()
+  centerImageSrc?: string
+
+  @Input()
+  centerImageSize?: string | number
+
 }

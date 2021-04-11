@@ -8,6 +8,9 @@ import { QrCodeErrorCorrectionLevel } from "./types"
 })
 export class QrCodeDirective implements OnChanges {
 
+  static readonly DEFAULT_ERROR_CORRECTION_LEVEL: QrCodeErrorCorrectionLevel = "M"
+  static readonly DEFAULT_CENTER_IMAGE_SIZE = 40
+
   // tslint:disable-next-line:no-input-rename
   @Input("qrCode") value!: string
 
@@ -15,18 +18,24 @@ export class QrCodeDirective implements OnChanges {
   @Input("qrCodeVersion") version?: number
 
   // tslint:disable-next-line:no-input-rename
-  @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel: QrCodeErrorCorrectionLevel = "M"
+  @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel: QrCodeErrorCorrectionLevel = QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
   @Input() width?: number
   @Input() height?: number
+
+  // tslint:disable-next-line:no-input-rename
+  @Input("qrCodeCenterImageSrc") centerImageSrc?: string
+  // tslint:disable-next-line:no-input-rename
+  @Input("qrCodeCenterImageWidth") centerImageWidth?: number | string
+  // tslint:disable-next-line:no-input-rename
+  @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
   constructor(
     private viewContainerRef: ViewContainerRef,
   ) {
   }
 
-  ngOnChanges() {
-
+  async ngOnChanges() {
     if (!this.value) {
       return
     }
@@ -42,26 +51,57 @@ export class QrCodeDirective implements OnChanges {
       this.version = undefined
     }
 
-    let canvas = this.viewContainerRef.element.nativeElement as HTMLCanvasElement | null
+    const canvas = this.viewContainerRef.element.nativeElement as HTMLCanvasElement | null
 
     if (!canvas) {
       // native element not available on server side rendering
       return
     }
 
-    let context = canvas.getContext("2d")
+    const context = canvas.getContext("2d")
 
     if (context) {
       context.clearRect(0, 0, context.canvas.width, context.canvas.height)
     }
 
+    const errorCorrectionLevel = this.errorCorrectionLevel ?? QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
+
     // tslint:disable-next-line:no-floating-promises
-    qrcode
+    await qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,
-        errorCorrectionLevel: this.errorCorrectionLevel,
+        errorCorrectionLevel,
         width: this.width,
       })
+
+    const centerImageSrc = this.centerImageSrc
+    const centerImageWidth = getIntOrDefault(this.centerImageWidth, QrCodeDirective.DEFAULT_CENTER_IMAGE_SIZE)
+    const centerImageHeight = getIntOrDefault(this.centerImageHeight, QrCodeDirective.DEFAULT_CENTER_IMAGE_SIZE)
+
+    if (centerImageSrc && context) {
+      const imageObj = new Image(centerImageWidth, centerImageHeight)
+      imageObj.src = centerImageSrc
+      imageObj.onload = () => {
+        context.drawImage(
+          imageObj,
+          canvas.width / 2 - centerImageWidth / 2,
+          canvas.height / 2 - centerImageHeight / 2, centerImageWidth, centerImageHeight,
+        )
+      }
+    }
+
   }
 
+}
+
+function getIntOrDefault(value: string | number | undefined, defaultValue: number): number {
+  if (value === undefined || value === "") {
+    return defaultValue
+  }
+
+  if (typeof value === "string") {
+    return parseInt(value, 10)
+  }
+
+  return value
 }
