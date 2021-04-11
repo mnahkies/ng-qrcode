@@ -24,10 +24,10 @@
     ],
     "paths": {
       "ng-qrcode": [
-        "dist/ng-qrcode"
+        "projects/ng-qrcode/src/public-api.ts"
       ],
       "ng-qrcode/*": [
-        "dist/ng-qrcode/*"
+        "projects/ng-qrcode/src/*"
       ]
     }
   }
