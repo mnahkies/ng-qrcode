@@ -1,4 +1,4 @@
-# 4.2.0 - TBC
+# 4.2.0 - 2021-04-11
 - Support rendering an image in the center of the generated QR code
 - Use default error correction level correctly if undefined is passed to the input
 - Documentation improvements
