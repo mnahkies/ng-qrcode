@@ -30,6 +30,8 @@ export class QrCodeDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
+  private centerImage?: HTMLImageElement
+
   constructor(
     private viewContainerRef: ViewContainerRef,
   ) {
@@ -79,11 +81,28 @@ export class QrCodeDirective implements OnChanges {
     const centerImageHeight = getIntOrDefault(this.centerImageHeight, QrCodeDirective.DEFAULT_CENTER_IMAGE_SIZE)
 
     if (centerImageSrc && context) {
-      const imageObj = new Image(centerImageWidth, centerImageHeight)
-      imageObj.src = centerImageSrc
-      imageObj.onload = () => {
+
+      if (!this.centerImage) {
+        this.centerImage = new Image(centerImageWidth, centerImageHeight)
+      }
+
+      if (centerImageSrc !== this.centerImage?.src) {
+        this.centerImage.src = centerImageSrc
+      }
+
+      if (centerImageWidth !== this.centerImage.width) {
+        this.centerImage.width = centerImageWidth
+      }
+
+      if (centerImageHeight !== this.centerImage.height) {
+        this.centerImage.height = centerImageHeight
+      }
+
+      const centerImage = this.centerImage
+
+      centerImage.onload = () => {
         context.drawImage(
-          imageObj,
+          centerImage,
           canvas.width / 2 - centerImageWidth / 2,
           canvas.height / 2 - centerImageHeight / 2, centerImageWidth, centerImageHeight,
         )
