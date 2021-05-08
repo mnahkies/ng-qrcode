@@ -1,9 +1,0 @@
-language: node_js
-sudo: false
-addons:
-  chrome: stable
-node_js:
-  - lts/*
-  - node
-cache: npm
-script: npm run ci-pipeline
