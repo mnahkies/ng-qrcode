@@ -30,14 +30,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ng-qrcode/tsconfig.lib.json",
-              "projects/ng-qrcode/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ng-qrcode/**/*.ts",
+              "projects/ng-qrcode/**/*.html"
             ]
           }
         }
@@ -141,14 +138,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ng-qrcode-demo/tsconfig.app.json",
-              "projects/ng-qrcode-demo/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ng-qrcode-demo//**/*.ts",
+              "projects/ng-qrcode-demo//**/*.html"
             ]
           }
         }
@@ -158,6 +152,7 @@
   "defaultProject": "ng-qrcode",
   "cli": {
     "analytics": "973384b3-6242-4947-9aae-a66f063a7508",
-    "packageManager": "yarn"
+    "packageManager": "yarn",
+    "defaultCollection": "@angular-eslint/schematics"
   }
 }
