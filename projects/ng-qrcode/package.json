@@ -19,8 +19,8 @@
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": ">=10 <12",
-    "@angular/core": ">=10 <12"
+    "@angular/common": ">=12 <13",
+    "@angular/core": ">=12 <13"
   },
   "keywords": [
     "qr",
