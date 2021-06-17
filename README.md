@@ -3,10 +3,10 @@
 [![Build Status](https://github.com/mnahkies/ng-qrcode/actions/workflows/ci.yml/badge.svg)](https://github.com/mnahkies/ng-qrcode/actions/workflows/ci.yml?query=branch%3Amaster)
 [![npm](https://img.shields.io/npm/v/ng-qrcode.svg)](https://www.npmjs.com/package/ng-qrcode)
 
-Easy to use AOT compatible QR code generator for Angular projects.
+Easy to use Ivy compatible QR code generator for Angular projects.
 
 Features:
-* Compatible with Angular 10, 11
+* Compatible with Angular 12
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas

@@ -3,7 +3,7 @@ import qrcode from "qrcode"
 import { QrCodeErrorCorrectionLevel } from "./types"
 
 @Directive({
-  // tslint:disable-next-line:directive-selector
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: `canvas[qrCode]`,
 })
 export class QrCodeDirective implements OnChanges {
@@ -11,23 +11,23 @@ export class QrCodeDirective implements OnChanges {
   static readonly DEFAULT_ERROR_CORRECTION_LEVEL: QrCodeErrorCorrectionLevel = "M"
   static readonly DEFAULT_CENTER_IMAGE_SIZE = 40
 
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCode") value!: string
 
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeVersion") version?: number
 
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel: QrCodeErrorCorrectionLevel = QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
   @Input() width?: number
   @Input() height?: number
 
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeCenterImageSrc") centerImageSrc?: string
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeCenterImageWidth") centerImageWidth?: number | string
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
   private centerImage?: HTMLImageElement
@@ -68,7 +68,7 @@ export class QrCodeDirective implements OnChanges {
 
     const errorCorrectionLevel = this.errorCorrectionLevel ?? QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
-    // tslint:disable-next-line:no-floating-promises
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     await qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,

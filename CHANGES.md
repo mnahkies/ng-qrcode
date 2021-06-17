@@ -1,3 +1,9 @@
+# 5.0.0 - 2021-06-17
+- Support Angular 12
+- Enable "partial-ivy" distribution format - https://angular.io/guide/creating-libraries#building-libraries-with-ivy
+
+*BREAKING CHANGES:* Dropped support for angular versions prior to v12, require applications to be using Ivy rather than deprecated ViewEngine.
+
 # 4.2.0 - 2021-04-11
 - Support rendering an image in the center of the generated QR code
 - Use default error correction level correctly if undefined is passed to the input
