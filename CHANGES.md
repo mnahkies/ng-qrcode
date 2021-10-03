@@ -1,4 +1,4 @@
-# [next]
+# 5.1.0 - 2021-10-03
 - Support configuring margin around the qr code (rendered within the canvas element)
 
 # 5.0.0 - 2021-06-17
