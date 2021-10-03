@@ -10,6 +10,7 @@ import { QrCodeErrorCorrectionLevel } from "./types"
             [qrCodeCenterImageSrc]="centerImageSrc"
             [qrCodeCenterImageWidth]="centerImageSize"
             [qrCodeCenterImageHeight]="centerImageSize"
+            [qrCodeMargin]="margin"
             [width]="size"
             [height]="size">
     </canvas>
@@ -32,5 +33,8 @@ export class QrCodeComponent {
 
   @Input()
   centerImageSize?: string | number
+
+  @Input()
+  margin?: number
 
 }

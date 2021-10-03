@@ -42,6 +42,9 @@
       <label for="centerImageSize">Center Image Size</label>
       <input id="centerImageSize" name="centerImageSize" [(ngModel)]="centerImageSize"/>
 
+      <label for="margin">Margin</label>
+      <input id="margin" name="margin" [(ngModel)]="margin"/>
+
     </form>
 
     <h3>Usage:</h3>
@@ -54,7 +57,8 @@
                [size]="size"
                [errorCorrectionLevel]="errorCorrectionLevel"
                [centerImageSrc]="centerImageSrc"
-               [centerImageSize]="centerImageSize ? this.centerImageSize : undefined">
+               [centerImageSize]="centerImageSize ? this.centerImageSize : undefined"
+               [margin]="margin">
       </qr-code>
     </div>
 

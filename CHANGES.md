@@ -1,3 +1,6 @@
+# [next]
+- Support configuring margin around the qr code (rendered within the canvas element)
+
 # 5.0.0 - 2021-06-17
 - Support Angular 12
 - Enable "partial-ivy" distribution format - https://angular.io/guide/creating-libraries#building-libraries-with-ivy

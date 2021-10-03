@@ -65,6 +65,10 @@ An optional size in pixels to render the center image.
 
 **Default:** 60
 
+#### margin: number (optional)
+An optional amount of margin to be rendered within the canvas element. Defaults to 4,
+where the unit is the size of one "dot" in the QR code.
+
 ### Directive
 If the provided component is not flexible enough for you, there is also a [directive](projects/ng-qrcode/src/lib/qr-code.directive.ts)
 provided that is used by the [component](projects/ng-qrcode/src/lib/qr-code.component.ts) under the hood, which provides finer 
