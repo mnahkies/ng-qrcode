@@ -1,3 +1,6 @@
+# 5.1.1 - 2021-10-03
+- Dependencies updated, rebuild with latest angular-devkit
+
 # 5.1.0 - 2021-10-03
 - Support configuring margin around the qr code (rendered within the canvas element)
 
