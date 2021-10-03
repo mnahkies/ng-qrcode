@@ -30,6 +30,9 @@ export class QrCodeDirective implements OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
+  // tslint:disable-next-line:no-input-rename
+  @Input("qrCodeMargin") margin = 16
+
   private centerImage?: HTMLImageElement
 
   constructor(
@@ -68,12 +71,12 @@ export class QrCodeDirective implements OnChanges {
 
     const errorCorrectionLevel = this.errorCorrectionLevel ?? QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
-    // tslint:disable-next-line:no-floating-promises
     await qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,
         errorCorrectionLevel,
         width: this.width,
+        margin: this.margin,
       })
 
     const centerImageSrc = this.centerImageSrc
