@@ -7,6 +7,10 @@
 
 *BREAKING CHANGES:* Dropped support for angular versions prior to v12, require applications to be using Ivy rather than deprecated ViewEngine.
 
+# 4.3.0 - 2021-10-03
+(backport release of changes in 5.1.0)
+- Support configuring margin around the qr code (rendered within the canvas element)
+
 # 4.2.0 - 2021-04-11
 - Support rendering an image in the center of the generated QR code
 - Use default error correction level correctly if undefined is passed to the input
