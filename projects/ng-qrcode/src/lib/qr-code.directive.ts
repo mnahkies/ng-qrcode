@@ -1,6 +1,8 @@
-import { Directive, Input, OnChanges, ViewContainerRef } from "@angular/core"
+import { Directive, Input, isDevMode, OnChanges, ViewContainerRef } from "@angular/core"
 import qrcode from "qrcode"
-import { QrCodeErrorCorrectionLevel } from "./types"
+import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
+
+const validColorRegex = /^#(?:[0-9a-fA-F]{3,4}){1,2}$/
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -22,6 +24,8 @@ export class QrCodeDirective implements OnChanges {
 
   @Input() width?: number
   @Input() height?: number
+  @Input() darkColor: RGBAColor = "#000000FF"
+  @Input() lightColor: RGBAColor = "#FFFFFFFF"
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeCenterImageSrc") centerImageSrc?: string
@@ -71,12 +75,28 @@ export class QrCodeDirective implements OnChanges {
 
     const errorCorrectionLevel = this.errorCorrectionLevel ?? QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
+    const dark = validColorRegex.test(this.darkColor) ? this.darkColor : undefined
+    const light = validColorRegex.test(this.lightColor) ? this.lightColor : undefined
+
+    if (isDevMode()) {
+      if (!dark && this.darkColor) {
+        console.error("[ng-qrcode] darkColor set to invalid value, must be RGBA hex color string, eg: #3050A1FF")
+      }
+
+      if (!light && this.lightColor) {
+        console.error("[ng-qrcode] lightColor set to invalid value, must be RGBA hex color string, eg: #3050A130")
+      }
+    }
     await qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,
         errorCorrectionLevel,
         width: this.width,
         margin: this.margin,
+        color: {
+          dark,
+          light,
+        },
       })
 
     const centerImageSrc = this.centerImageSrc
