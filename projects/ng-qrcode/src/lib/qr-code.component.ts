@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core"
-import { QrCodeErrorCorrectionLevel } from "./types"
+import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
   selector: "qr-code",
@@ -12,7 +12,10 @@ import { QrCodeErrorCorrectionLevel } from "./types"
             [qrCodeCenterImageHeight]="centerImageSize"
             [qrCodeMargin]="margin"
             [width]="size"
-            [height]="size">
+            [height]="size"
+            [darkColor]="darkColor"
+            [lightColor]="lightColor"
+    >
     </canvas>
   `,
   styles: [],
@@ -24,6 +27,12 @@ export class QrCodeComponent {
 
   @Input()
   size?: string | number
+
+  @Input()
+  darkColor?: RGBAColor
+
+  @Input()
+  lightColor?: RGBAColor
 
   @Input()
   errorCorrectionLevel?: QrCodeErrorCorrectionLevel

@@ -1,5 +1,5 @@
 import { Component } from "@angular/core"
-import { QrCodeErrorCorrectionLevel } from "ng-qrcode"
+import { QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
 
 @Component({
   selector: "app-root",
@@ -15,6 +15,8 @@ export class AppComponent {
   showImage = "no"
   centerImageSize = ""
   margin = 4
+  darkColor?: RGBAColor
+  lightColor?: RGBAColor
 
   get centerImageSrc() {
     return this.showImage === "yes" ? "./assets/angular-logo.png" : undefined
@@ -23,7 +25,9 @@ export class AppComponent {
   get example() {
     return `
 <qr-code value="${ this.value }"
-         size="${ this.size }"
+         size="${ this.size }"${this.darkColor ? `
+         darkColor="${this.darkColor}"` : ""}${this.lightColor ? `
+         lightColor="${this.lightColor}"` : ""}
          errorCorrectionLevel="${ this.errorCorrectionLevel }"
          centerImageSrc="${ this.centerImageSrc }"
          centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"

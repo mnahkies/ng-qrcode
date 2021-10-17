@@ -1,3 +1,7 @@
+# Next
+- Support `darkColor` and `lightColor` inputs
+- Lockfile maintenance
+
 # 5.1.1 - 2021-10-03
 - Dependencies updated, rebuild with latest angular-devkit
 

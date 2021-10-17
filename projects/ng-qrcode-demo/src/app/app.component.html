@@ -28,6 +28,12 @@
       <label for="size">Size</label>
       <input id="size" name="size" [(ngModel)]="size"/>
 
+      <label for="darkColor">Dark Color</label>
+      <input id="darkColor" name="size" [(ngModel)]="darkColor"/>
+
+      <label for="lightColor">Light Color</label>
+      <input id="lightColor" name="size" [(ngModel)]="lightColor"/>
+
       <label for="errorCorrectionLevel">Error Correction Level</label>
       <select id="errorCorrectionLevel" name="errorCorrectionLevel" [(ngModel)]="errorCorrectionLevel">
         <option *ngFor="let value of errorCorrectionLevels" [value]="value">{{value}}</option>
@@ -55,6 +61,8 @@
     <div class="container">
       <qr-code [value]="value"
                [size]="size"
+               [darkColor]="darkColor"
+               [lightColor]="lightColor"
                [errorCorrectionLevel]="errorCorrectionLevel"
                [centerImageSrc]="centerImageSrc"
                [centerImageSize]="centerImageSize ? this.centerImageSize : undefined"

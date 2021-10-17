@@ -41,6 +41,18 @@ An optional size in pixels to render at
 
 **Default:** automatic size based on the value provided (recommended)
 
+#### darkColor: RGBAColor (optional)
+An RGBA Hex string to use as the color for the dark / filled modules.
+If an invalid value is passed, the default will be used.
+
+**Default** black ("#000000FF")
+
+#### lightColor: RGBAColor (optional)
+An RGBA Hex string to use as the color for the empty space.
+If an invalid value is passed, the default will be used.
+
+**Default** white ("#FFFFFFFF")
+
 #### errorCorrectionLevel: string (optional)
 Controls the amount of redundant information included to make the QR code 
 more likely to scan correctly if it is dirty / damaged
