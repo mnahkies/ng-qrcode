@@ -1,4 +1,4 @@
-# Next
+# 5.2.0 - 2021-10-17
 - Support `darkColor` and `lightColor` inputs
 - Lockfile maintenance
 
