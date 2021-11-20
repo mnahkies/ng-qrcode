@@ -1,3 +1,7 @@
+# 6.0.0 - 2021-11-20
+- Support Angular 13
+- Lockfile maintenance
+
 # 5.2.0 - 2021-10-17
 - Support `darkColor` and `lightColor` inputs
 - Lockfile maintenance
