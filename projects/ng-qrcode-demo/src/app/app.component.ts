@@ -18,20 +18,32 @@ export class AppComponent {
   darkColor?: RGBAColor
   lightColor?: RGBAColor
 
+  fillParentElement = false
+  columnSize = "3"
+  refreshing = false
+
   get centerImageSrc() {
     return this.showImage === "yes" ? "./assets/angular-logo.png" : undefined
   }
 
+  refresh() {
+    this.refreshing = true
+
+    setTimeout(() => {
+      this.refreshing = false
+    }, 500)
+  }
+
   get example() {
     return `
-<qr-code value="${ this.value }"
-         size="${ this.size }"${this.darkColor ? `
+<qr-code value="${this.value}"
+         size="${this.size}"${this.darkColor ? `
          darkColor="${this.darkColor}"` : ""}${this.lightColor ? `
          lightColor="${this.lightColor}"` : ""}
-         errorCorrectionLevel="${ this.errorCorrectionLevel }"
-         centerImageSrc="${ this.centerImageSrc }"
-         centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
-         margin="${ this.margin }">
+         errorCorrectionLevel="${this.errorCorrectionLevel}"
+         centerImageSrc="${this.centerImageSrc}"
+         centerImageSize="${this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined}"
+         margin="${this.margin}">
 </qr-code>`
   }
 
