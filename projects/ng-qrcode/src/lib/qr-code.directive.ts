@@ -24,6 +24,7 @@ export class QrCodeDirective implements OnChanges {
 
   @Input() width?: number
   @Input() height?: number
+  @Input() fillTheParentElement?: boolean
   @Input() darkColor: RGBAColor = "#000000FF"
   @Input() lightColor: RGBAColor = "#FFFFFFFF"
 
@@ -61,7 +62,6 @@ export class QrCodeDirective implements OnChanges {
     }
 
     const canvas = this.viewContainerRef.element.nativeElement as HTMLCanvasElement | null
-
     if (!canvas) {
       // native element not available on server side rendering
       return
@@ -87,6 +87,15 @@ export class QrCodeDirective implements OnChanges {
         console.error("[ng-qrcode] lightColor set to invalid value, must be RGBA hex color string, eg: #3050A130")
       }
     }
+
+    if (this.fillTheParentElement) {
+      const PARENT = canvas?.parentElement?.parentElement
+
+      if (PARENT) {
+        this.width = PARENT.clientWidth
+      }
+    }
+
     await qrcode
       .toCanvas(canvas, this.value, {
         version: this.version,

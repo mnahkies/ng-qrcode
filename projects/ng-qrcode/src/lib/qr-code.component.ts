@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core"
+import { Component, Input, OnDestroy, OnInit } from "@angular/core"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
@@ -15,6 +15,7 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
             [height]="size"
             [darkColor]="darkColor"
             [lightColor]="lightColor"
+            [fillTheParentElement]="fillTheParentElement"
     >
     </canvas>
   `,
@@ -35,6 +36,9 @@ export class QrCodeComponent {
   lightColor?: RGBAColor
 
   @Input()
+  fillTheParentElement?: boolean
+
+  @Input()
   errorCorrectionLevel?: QrCodeErrorCorrectionLevel
 
   @Input()
@@ -45,5 +49,4 @@ export class QrCodeComponent {
 
   @Input()
   margin?: number
-
 }
