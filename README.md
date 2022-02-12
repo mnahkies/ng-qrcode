@@ -41,6 +41,9 @@ An optional size in pixels to render at
 
 **Default:** automatic size based on the value provided (recommended)
 
+#### fillTheParentElement: boolean (optional)
+If this value is true then `size` value will be overridden. The new `size` value will be equal to the parent element's width.
+
 #### darkColor: RGBAColor (optional)
 An RGBA Hex string to use as the color for the dark / filled modules.
 If an invalid value is passed, the default will be used.
