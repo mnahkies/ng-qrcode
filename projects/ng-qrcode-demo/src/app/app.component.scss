@@ -55,6 +55,13 @@ form {
 
 @for $i from 1 through 12 {
   .col-#{$i} {
-    flex: 0 0 #{$i * (100% / 12)};
+    flex: 0 0 #{$i * calc(100% / 12)};
+    max-width: 100%;
+
+    qr-code {
+      width: 100%;
+      position: relative;
+      display: block;
+    }
   }
 }

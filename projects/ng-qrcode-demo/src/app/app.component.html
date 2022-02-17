@@ -57,7 +57,6 @@
           id="columnsize"
           name="columnsize"
           [(ngModel)]="columnSize"
-          (change)="refresh()"
         >
           <option
             value="{{ i + 1 }}"
@@ -66,6 +65,16 @@
             {{ i + 1 }}
           </option>
         </select>
+
+        <label for="debounce-time">
+          Debounce Time
+        </label>
+        <input
+          id="debounce-time"
+          type="number"
+          name="debounce-time"
+          [(ngModel)]="debounceTime"
+        />
       </ng-template>
 
       <label for="darkColor">Dark Color</label>
@@ -125,9 +134,10 @@
 
     <ng-template #previewFillParent>
       <div class="col-{{ columnSize }}">
-        <ng-container *ngIf="!refreshing">
+        <ng-container>
           <qr-code
             [fillTheParentElement]="true"
+            [debounceTime]="debounceTime"
             [value]="value"
             [darkColor]="darkColor"
             [lightColor]="lightColor"
