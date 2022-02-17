@@ -147,19 +147,20 @@ export class QrCodeDirective implements OnChanges, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const QRCODECOMPONENT = this.viewContainerRef.element.nativeElement?.parentElement
+    if (this.fillTheParentElement) {
+      const QRCODECOMPONENT = this.viewContainerRef.element.nativeElement?.parentElement
 
-    if (QRCODECOMPONENT) {
+      if (QRCODECOMPONENT) {
+        let debounceTimeout: NodeJS.Timeout
+        this.resizeEventObserver = new ResizeObserver(async () => {
+          clearTimeout(debounceTimeout)
+          debounceTimeout = setTimeout(async () => {
+            await this.ngOnChanges()
+          }, this.debounceTime)
+        })
 
-      let debounceTimeout: NodeJS.Timeout
-      this.resizeEventObserver = new ResizeObserver(async () => {
-        clearTimeout(debounceTimeout)
-        debounceTimeout = setTimeout(async () => {
-          await this.ngOnChanges()
-        }, this.debounceTime)
-      })
-
-      this.resizeEventObserver.observe(QRCODECOMPONENT)
+        this.resizeEventObserver.observe(QRCODECOMPONENT)
+      }
     }
   }
 
