@@ -44,6 +44,9 @@ An optional size in pixels to render at
 #### fillTheParentElement: boolean (optional)
 If this value is true then `size` value will be overridden. The new `size` value will be equal to the parent element's width.
 
+#### debounceTime: number (optional)
+If fillTheParentElement is `true`, `resize` event will trigger in every `debounceTime` ms. Default value is `100`.
+
 #### darkColor: RGBAColor (optional)
 An RGBA Hex string to use as the color for the dark / filled modules.
 If an invalid value is passed, the default will be used.
