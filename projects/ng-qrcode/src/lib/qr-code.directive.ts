@@ -1,4 +1,4 @@
-import { Directive, Input, isDevMode, OnChanges, ViewContainerRef } from "@angular/core"
+import { Directive, Input, isDevMode, OnChanges, OnDestroy, OnInit, ViewContainerRef } from "@angular/core"
 import qrcode from "qrcode"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
@@ -8,7 +8,7 @@ const validColorRegex = /^#(?:[0-9a-fA-F]{3,4}){1,2}$/
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: `canvas[qrCode]`,
 })
-export class QrCodeDirective implements OnChanges {
+export class QrCodeDirective implements OnChanges, OnInit, OnDestroy {
 
   static readonly DEFAULT_ERROR_CORRECTION_LEVEL: QrCodeErrorCorrectionLevel = "M"
   static readonly DEFAULT_CENTER_IMAGE_SIZE = 40
@@ -27,6 +27,7 @@ export class QrCodeDirective implements OnChanges {
   @Input() fillTheParentElement?: boolean
   @Input() darkColor: RGBAColor = "#000000FF"
   @Input() lightColor: RGBAColor = "#FFFFFFFF"
+  @Input() debounceTime = 100
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeCenterImageSrc") centerImageSrc?: string
@@ -37,6 +38,8 @@ export class QrCodeDirective implements OnChanges {
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeMargin") margin = 16
+
+  private resizeEventObserver: ResizeObserver | undefined
 
   private centerImage?: HTMLImageElement
 
@@ -89,7 +92,7 @@ export class QrCodeDirective implements OnChanges {
     }
 
     if (this.fillTheParentElement) {
-      const PARENT = canvas?.parentElement?.parentElement
+      const PARENT = canvas?.parentElement
 
       if (PARENT) {
         this.width = PARENT.clientWidth
@@ -141,6 +144,29 @@ export class QrCodeDirective implements OnChanges {
       }
     }
 
+  }
+
+  ngOnInit(): void {
+    const QRCODECOMPONENT = this.viewContainerRef.element.nativeElement?.parentElement
+
+    if (QRCODECOMPONENT) {
+
+      let debounceTimeout: NodeJS.Timeout
+      this.resizeEventObserver = new ResizeObserver(async () => {
+        clearTimeout(debounceTimeout)
+        debounceTimeout = setTimeout(async () => {
+          await this.ngOnChanges()
+        }, this.debounceTime)
+      })
+
+      this.resizeEventObserver.observe(QRCODECOMPONENT)
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.resizeEventObserver) {
+      this.resizeEventObserver.disconnect()
+    }
   }
 
 }

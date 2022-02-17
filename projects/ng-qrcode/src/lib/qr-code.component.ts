@@ -1,10 +1,10 @@
-import { Component, Input, OnDestroy, OnInit } from "@angular/core"
+import { Component, Input } from "@angular/core"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
   selector: "qr-code",
   template: `
-    <canvas *ngIf="value && !refreshing"
+    <canvas *ngIf="value"
             [qrCode]="value"
             [qrCodeErrorCorrectionLevel]="errorCorrectionLevel"
             [qrCodeCenterImageSrc]="centerImageSrc"
@@ -16,12 +16,13 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
             [darkColor]="darkColor"
             [lightColor]="lightColor"
             [fillTheParentElement]="fillTheParentElement"
+            [debounceTime]="debounceTime"
     >
     </canvas>
   `,
   styles: [],
 })
-export class QrCodeComponent implements OnInit, OnDestroy {
+export class QrCodeComponent {
 
   @Input()
   value?: string
@@ -50,20 +51,6 @@ export class QrCodeComponent implements OnInit, OnDestroy {
   @Input()
   margin?: number
 
-  refreshing = false
-
-  resizeEventListener: EventListener = () => {
-    this.refreshing = true
-    setTimeout(() => {
-      this.refreshing = false
-    }, 100)
-  }
-
-  ngOnInit(): void {
-    window.addEventListener("resize", this.resizeEventListener)
-  }
-
-  ngOnDestroy(): void {
-    window.removeEventListener("resize", this.resizeEventListener)
-  }
+  @Input()
+  debounceTime?: number
 }
