@@ -149,10 +149,11 @@
       }
     }
   },
-  "defaultProject": "ng-qrcode",
   "cli": {
     "analytics": "973384b3-6242-4947-9aae-a66f063a7508",
     "packageManager": "yarn",
-    "defaultCollection": "@angular-eslint/schematics"
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
