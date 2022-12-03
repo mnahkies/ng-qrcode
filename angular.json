@@ -57,7 +57,9 @@
             "outputPath": "dist/ng-qrcode-demo",
             "index": "projects/ng-qrcode-demo/src/index.html",
             "main": "projects/ng-qrcode-demo/src/main.ts",
-            "polyfills": "projects/ng-qrcode-demo/src/polyfills.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/ng-qrcode-demo/tsconfig.app.json",
             "assets": [
               "projects/ng-qrcode-demo/src/favicon.png",
@@ -123,8 +125,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-qrcode-demo/src/test.ts",
-            "polyfills": "projects/ng-qrcode-demo/src/polyfills.ts",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/ng-qrcode-demo/tsconfig.spec.json",
             "karmaConfig": "projects/ng-qrcode-demo/karma.conf.js",
             "styles": [
