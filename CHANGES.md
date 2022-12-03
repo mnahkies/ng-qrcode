@@ -1,3 +1,6 @@
+# 8.0.1 - 2022-12-03
+- Fix center image disappearing when other values are updated (#71)
+
 # 8.0.0 - 2022-12-03
 - Support Angular 15 (#70)
 
