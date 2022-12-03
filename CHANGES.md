@@ -1,3 +1,6 @@
+# 8.0.0 - 2022-12-03
+- Support Angular 15 (#70)
+
 # 7.0.0 - 2022-06-16
 - Support Angular 14 (#58)
 - Lockfile maintenance (#62)
