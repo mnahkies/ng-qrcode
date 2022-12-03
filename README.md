@@ -95,9 +95,8 @@ run locally using `ng build && ng serve`
 # Angular compatibility matrix
 See table below for a history of versions and their Angular compatibility.
 
-
 | Angular Version | ng-qrcode Versions |
-|--------------------------------------|
+|-----------------|--------------------|
 | ^15             | ^8                 |
 | ^14             | ^7                 |
 | ^13             | ^6                 |
