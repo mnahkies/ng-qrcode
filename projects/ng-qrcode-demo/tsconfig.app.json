@@ -5,8 +5,7 @@
     "types": []
   },
   "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
+    "src/main.ts"
   ],
   "include": [
     "projects/ng-qrcode-demo/src/**/*.d.ts"

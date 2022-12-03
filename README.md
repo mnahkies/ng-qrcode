@@ -3,10 +3,10 @@
 [![Build Status](https://github.com/mnahkies/ng-qrcode/actions/workflows/ci.yml/badge.svg)](https://github.com/mnahkies/ng-qrcode/actions/workflows/ci.yml?query=branch%3Amaster)
 [![npm](https://img.shields.io/npm/v/ng-qrcode.svg)](https://www.npmjs.com/package/ng-qrcode)
 
-Easy to use Ivy compatible QR code generator for Angular projects.
+Easy to use QR code generator for Angular projects.
 
 **Features:**
-* Compatible with Angular 14
+* Compatible with Angular 15
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas
@@ -91,6 +91,21 @@ grain control.
 
 A demo app is included in the repository under `projects/ng-qrcode-demo` which can be 
 run locally using `ng build && ng serve`
+
+# Angular compatibility matrix
+See table below for a history of versions and their Angular compatibility.
+
+
+| Angular Version | ng-qrcode Versions |
+|--------------------------------------|
+| ^15             | ^8                 |
+| ^14             | ^7                 |
+| ^13             | ^6                 |
+| ^12             | ^5                 |
+| ^10 / ^11       | ^4                 |
+| ^7 / ^8         | ^3                 |
+| ^7              | ^2                 |
+
 
 # Known/Common Issues
 
