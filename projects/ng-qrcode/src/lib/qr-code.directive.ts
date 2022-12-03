@@ -109,27 +109,34 @@ export class QrCodeDirective implements OnChanges {
         this.centerImage = new Image(centerImageWidth, centerImageHeight)
       }
 
-      if (centerImageSrc !== this.centerImage?.src) {
-        this.centerImage.src = centerImageSrc
+      const centerImage = this.centerImage
+
+      if (centerImageSrc !== this.centerImage.src) {
+        centerImage.src = centerImageSrc
       }
 
       if (centerImageWidth !== this.centerImage.width) {
-        this.centerImage.width = centerImageWidth
+        centerImage.width = centerImageWidth
       }
 
       if (centerImageHeight !== this.centerImage.height) {
-        this.centerImage.height = centerImageHeight
+        centerImage.height = centerImageHeight
       }
 
-      const centerImage = this.centerImage
-
-      centerImage.onload = () => {
+      const doDrawImage = () => {
         context.drawImage(
           centerImage,
           canvas.width / 2 - centerImageWidth / 2,
           canvas.height / 2 - centerImageHeight / 2, centerImageWidth, centerImageHeight,
         )
       }
+
+      centerImage.onload = doDrawImage
+
+      if (centerImage.complete) {
+        doDrawImage()
+      }
+
     }
 
   }
