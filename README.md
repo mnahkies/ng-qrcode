@@ -95,8 +95,12 @@ run locally using `ng build && ng serve`
 # Angular compatibility matrix
 See table below for a history of versions and their Angular compatibility.
 
+From version 16 onwards the library major version will match the Angular 
+major version.
+
 | Angular Version | ng-qrcode Versions |
 |-----------------|--------------------|
+| ^16             | ^16                |
 | ^15             | ^8                 |
 | ^14             | ^7                 |
 | ^13             | ^6                 |
