@@ -1,3 +1,7 @@
+# 16.0.0 - 2023-05-05
+- Support Angular 16 (#76)
+- Begin matching major version to major Angular version (hence the jump from `8` -> `16`)
+
 # 8.0.1 - 2022-12-03
 - Fix center image disappearing when other values are updated (#71)
 
