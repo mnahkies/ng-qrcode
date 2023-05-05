@@ -8,88 +8,27 @@
       "files": [
         "*.ts"
       ],
-      "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
-        "createDefaultProgram": true
-      },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
-        "@typescript-eslint/array-type": [
+        "@angular-eslint/directive-selector": [
           "error",
           {
-            "default": "array"
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
           }
         ],
-        "@typescript-eslint/consistent-type-definitions": "error",
-        "@typescript-eslint/dot-notation": "off",
-        "@typescript-eslint/explicit-member-accessibility": [
-          "off",
-          {
-            "accessibility": "explicit"
-          }
-        ],
-        "@typescript-eslint/member-delimiter-style": [
+        "@angular-eslint/component-selector": [
           "error",
           {
-            "multiline": {
-              "delimiter": "none",
-              "requireLast": true
-            },
-            "singleline": {
-              "delimiter": "semi",
-              "requireLast": false
-            }
-          }
-        ],
-        "@typescript-eslint/member-ordering": "off",
-        "@typescript-eslint/naming-convention": "off",
-        "@typescript-eslint/no-floating-promises": "error",
-        "@typescript-eslint/no-var-requires": "error",
-        "@typescript-eslint/quotes": [
-          "error",
-          "double",
-          {
-            "allowTemplateLiterals": true
-          }
-        ],
-        "@typescript-eslint/semi": [
-          "error",
-          "never"
-        ],
-        "brace-style": [
-          "error",
-          "1tbs"
-        ],
-        "comma-dangle": [
-          "error",
-          "always-multiline"
-        ],
-        "id-blacklist": "off",
-        "id-match": "off",
-        "import/order": "error",
-        "no-underscore-dangle": "off",
-        "padding-line-between-statements": [
-          "off",
-          {
-            "blankLine": "always",
-            "prev": "*",
-            "next": "return"
-          }
-        ],
-        "prefer-arrow/prefer-arrow-functions": "off",
-        "prefer-const": "off",
-        "space-before-function-paren": [
-          "error",
-          {
-            "anonymous": "always",
-            "named": "never",
-            "asyncArrow": "always"
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
           }
         ]
       }
@@ -99,7 +38,8 @@
         "*.html"
       ],
       "extends": [
-        "plugin:@angular-eslint/template/recommended"
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
       ],
       "rules": {}
     }
