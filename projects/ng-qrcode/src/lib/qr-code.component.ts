@@ -15,6 +15,8 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
             [height]="size"
             [darkColor]="darkColor"
             [lightColor]="lightColor"
+            [fillTheParentElement]="fillTheParentElement"
+            [debounceTime]="debounceTime"
     >
     </canvas>
   `,
@@ -35,6 +37,9 @@ export class QrCodeComponent {
   lightColor?: RGBAColor
 
   @Input()
+  fillTheParentElement?: boolean
+
+  @Input()
   errorCorrectionLevel?: QrCodeErrorCorrectionLevel
 
   @Input()
@@ -46,4 +51,6 @@ export class QrCodeComponent {
   @Input()
   margin?: number
 
+  @Input()
+  debounceTime?: number
 }

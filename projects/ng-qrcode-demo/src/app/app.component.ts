@@ -18,20 +18,26 @@ export class AppComponent {
   darkColor?: RGBAColor
   lightColor?: RGBAColor
 
+  fillParentElement = false
+  debounceTime = 100
+  columnSize = "3"
+
   get centerImageSrc() {
     return this.showImage === "yes" ? "./assets/angular-logo.png" : undefined
   }
 
   get example() {
     return `
-<qr-code value="${ this.value }"
-         size="${ this.size }"${this.darkColor ? `
+<qr-code value="${this.value}"
+         size="${this.size}"${this.darkColor ? `
          darkColor="${this.darkColor}"` : ""}${this.lightColor ? `
          lightColor="${this.lightColor}"` : ""}
-         errorCorrectionLevel="${ this.errorCorrectionLevel }"
-         centerImageSrc="${ this.centerImageSrc }"
-         centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
-         margin="${ this.margin }">
+         errorCorrectionLevel="${this.errorCorrectionLevel}"
+         centerImageSrc="${this.centerImageSrc}"
+         centerImageSize="${this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined}"
+         margin="${this.margin}"${this.fillParentElement ? `
+         [fillTheParentElement]=\"true\"` : ""}${this.fillParentElement ? `
+         [debounceTime]="${this.debounceTime}"` : ""}>
 </qr-code>`
   }
 

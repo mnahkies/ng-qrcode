@@ -2,41 +2,96 @@
 <div class="header">
   <qr-code value="https://www.npmjs.com/package/ng-qrcode" size="40"></qr-code>
 
-  <h1>
-    ng-qrcode demo
-  </h1>
+  <h1>ng-qrcode demo</h1>
 
   <span style="flex: 1 1 auto"></span>
 
-  <a href="https://github.com/mnahkies/ng-qrcode" rel="noreferrer" target="_blank">
-    <img alt="GitHub stars" height="20px" src="https://img.shields.io/github/stars/mnahkies/ng-qrcode.svg">
+  <a
+    href="https://github.com/mnahkies/ng-qrcode"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="GitHub stars"
+      height="20px"
+      src="https://img.shields.io/github/stars/mnahkies/ng-qrcode.svg"
+    />
   </a>
 
-  <a href="https://www.npmjs.com/package/ng-qrcode" rel="noreferrer" target="_blank">
-    <img alt="npm" height="20px" src="https://img.shields.io/npm/v/ng-qrcode.svg">
+  <a
+    href="https://www.npmjs.com/package/ng-qrcode"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <img
+      alt="npm"
+      height="20px"
+      src="https://img.shields.io/npm/v/ng-qrcode.svg"
+    />
   </a>
 </div>
 
 <div class="container">
   <div class="body">
-
     <h3>Inputs:</h3>
     <form ngForm>
       <label for="value">Value</label>
-      <input id="value" name="value" [(ngModel)]="value"/>
+      <input id="value" name="value" [(ngModel)]="value" />
 
-      <label for="size">Size</label>
-      <input id="size" name="size" [(ngModel)]="size"/>
+      <label for="fillparent">Fill The Parent</label>
+      <input
+        id="fillparent"
+        name="fillparent"
+        [(ngModel)]="fillParentElement"
+        type="checkbox"
+      />
+
+      <ng-container *ngIf="!fillParentElement; else fillTheParentSettings">
+        <label for="size">Size</label>
+        <input id="size" name="size" [(ngModel)]="size" />
+      </ng-container>
+
+      <ng-template #fillTheParentSettings>
+        <label for="columnsize">Column Size</label>
+        <select
+          id="columnsize"
+          name="columnsize"
+          [(ngModel)]="columnSize"
+        >
+          <option
+            value="{{ i + 1 }}"
+            *ngFor="let col of [].constructor(12); let i = index"
+          >
+            {{ i + 1 }}
+          </option>
+        </select>
+
+        <label for="debounce-time">
+          Debounce Time
+        </label>
+        <input
+          id="debounce-time"
+          type="number"
+          name="debounce-time"
+          [(ngModel)]="debounceTime"
+        />
+      </ng-template>
 
       <label for="darkColor">Dark Color</label>
-      <input id="darkColor" name="size" [(ngModel)]="darkColor"/>
+      <input id="darkColor" name="size" [(ngModel)]="darkColor" />
 
       <label for="lightColor">Light Color</label>
-      <input id="lightColor" name="size" [(ngModel)]="lightColor"/>
+      <input id="lightColor" name="size" [(ngModel)]="lightColor" />
 
       <label for="errorCorrectionLevel">Error Correction Level</label>
-      <select id="errorCorrectionLevel" name="errorCorrectionLevel" [(ngModel)]="errorCorrectionLevel">
-        <option *ngFor="let value of errorCorrectionLevels" [value]="value">{{value}}</option>
+      <select
+        id="errorCorrectionLevel"
+        name="errorCorrectionLevel"
+        [(ngModel)]="errorCorrectionLevel"
+      >
+        <option *ngFor="let value of errorCorrectionLevels" [value]="value">
+          {{ value }}
+        </option>
       </select>
 
       <label for="showImage">Show Image in Center?</label>
@@ -46,29 +101,56 @@
       </select>
 
       <label for="centerImageSize">Center Image Size</label>
-      <input id="centerImageSize" name="centerImageSize" [(ngModel)]="centerImageSize"/>
+      <input
+        id="centerImageSize"
+        name="centerImageSize"
+        [(ngModel)]="centerImageSize"
+      />
 
       <label for="margin">Margin</label>
-      <input id="margin" name="margin" [(ngModel)]="margin"/>
-
+      <input id="margin" name="margin" [(ngModel)]="margin" />
     </form>
 
     <h3>Usage:</h3>
-    <pre [innerText]="example">
-  </pre>
+    <pre [innerText]="example"></pre>
 
     <h3>Result:</h3>
-    <div class="container">
-      <qr-code [value]="value"
-               [size]="size"
-               [darkColor]="darkColor"
-               [lightColor]="lightColor"
-               [errorCorrectionLevel]="errorCorrectionLevel"
-               [centerImageSrc]="centerImageSrc"
-               [centerImageSize]="centerImageSize ? this.centerImageSize : undefined"
-               [margin]="margin">
+  </div>
+
+  <div class="row">
+    <div class="container" *ngIf="!fillParentElement; else previewFillParent">
+      <qr-code
+        [value]="value"
+        [size]="size"
+        [darkColor]="darkColor"
+        [lightColor]="lightColor"
+        [errorCorrectionLevel]="errorCorrectionLevel"
+        [centerImageSrc]="centerImageSrc"
+        [centerImageSize]="centerImageSize ? this.centerImageSize : undefined"
+        [margin]="margin"
+      >
       </qr-code>
     </div>
 
+    <ng-template #previewFillParent>
+      <div class="col-{{ columnSize }}">
+        <ng-container>
+          <qr-code
+            [fillTheParentElement]="true"
+            [debounceTime]="debounceTime"
+            [value]="value"
+            [darkColor]="darkColor"
+            [lightColor]="lightColor"
+            [errorCorrectionLevel]="errorCorrectionLevel"
+            [centerImageSrc]="centerImageSrc"
+            [centerImageSize]="
+              centerImageSize ? this.centerImageSize : undefined
+            "
+            [margin]="margin"
+          >
+          </qr-code>
+        </ng-container>
+      </div>
+    </ng-template>
   </div>
 </div>
