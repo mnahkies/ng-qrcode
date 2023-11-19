@@ -4,19 +4,21 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 @Component({
   selector: "qr-code",
   template: `
-    <canvas *ngIf="value"
-            [qrCode]="value"
-            [qrCodeErrorCorrectionLevel]="errorCorrectionLevel"
-            [qrCodeCenterImageSrc]="centerImageSrc"
-            [qrCodeCenterImageWidth]="centerImageSize"
-            [qrCodeCenterImageHeight]="centerImageSize"
-            [qrCodeMargin]="margin"
-            [width]="size"
-            [height]="size"
-            [darkColor]="darkColor"
-            [lightColor]="lightColor"
-    >
-    </canvas>
+    @if (value) {
+      <canvas
+        [qrCode]="value"
+        [qrCodeErrorCorrectionLevel]="errorCorrectionLevel"
+        [qrCodeCenterImageSrc]="centerImageSrc"
+        [qrCodeCenterImageWidth]="centerImageSize"
+        [qrCodeCenterImageHeight]="centerImageSize"
+        [qrCodeMargin]="margin"
+        [width]="size"
+        [height]="size"
+        [darkColor]="darkColor"
+        [lightColor]="lightColor"
+      >
+      </canvas>
+    }
   `,
   styles: [],
 })

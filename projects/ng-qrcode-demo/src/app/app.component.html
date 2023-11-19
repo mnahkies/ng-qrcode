@@ -36,7 +36,9 @@
 
       <label for="errorCorrectionLevel">Error Correction Level</label>
       <select id="errorCorrectionLevel" name="errorCorrectionLevel" [(ngModel)]="errorCorrectionLevel">
-        <option *ngFor="let value of errorCorrectionLevels" [value]="value">{{value}}</option>
+        @for (value of errorCorrectionLevels; track value) {
+          <option [value]="value">{{value}}</option>
+        }
       </select>
 
       <label for="showImage">Show Image in Center?</label>
