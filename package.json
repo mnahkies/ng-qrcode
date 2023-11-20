@@ -14,6 +14,7 @@
   "bugs": {
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
