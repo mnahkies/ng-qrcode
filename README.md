@@ -6,7 +6,7 @@
 Easy to use QR code generator for Angular projects.
 
 **Features:**
-* Compatible with Angular 16
+* Compatible with Angular 17
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas
@@ -100,6 +100,7 @@ major version.
 
 | Angular Version | ng-qrcode Versions |
 |-----------------|--------------------|
+| ^17             | ^17                |
 | ^16             | ^16                |
 | ^15             | ^8                 |
 | ^14             | ^7                 |
