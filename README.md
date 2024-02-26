@@ -57,6 +57,12 @@ If an invalid value is passed, the default will be used.
 Controls the amount of redundant information included to make the QR code 
 more likely to scan correctly if it is dirty / damaged
 
+#### style: { [klass: string]: any; } (optional)
+Inline style of the element
+
+#### styleClass: string
+Class of the element
+
 **Default:** "M"
 
 Valid values: "L", "M", "Q", "H" - where "L" is the lowest 
