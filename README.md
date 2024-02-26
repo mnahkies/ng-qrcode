@@ -60,7 +60,7 @@ more likely to scan correctly if it is dirty / damaged
 #### style: { [klass: string]: any; } (optional)
 Inline style of the element
 
-#### styleClass: string
+#### styleClass: string (optional)
 Class of the element
 
 **Default:** "M"
