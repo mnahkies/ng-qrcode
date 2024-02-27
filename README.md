@@ -58,7 +58,7 @@ Controls the amount of redundant information included to make the QR code
 more likely to scan correctly if it is dirty / damaged
 
 #### style: { [klass: string]: any; } (optional)
-Inline style of the element
+Inline style object, passed to the inner canvas element as `[ngStyle]`
 
 #### styleClass: string (optional)
 Class of the element
