@@ -61,7 +61,7 @@ more likely to scan correctly if it is dirty / damaged
 Inline style object, passed to the inner canvas element as `[ngStyle]`
 
 #### styleClass: string (optional)
-Class of the element
+CSS Class, passed to the inner canvas element
 
 **Default:** "M"
 
