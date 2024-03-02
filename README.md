@@ -53,6 +53,12 @@ If an invalid value is passed, the default will be used.
 
 **Default** white ("#FFFFFFFF")
 
+#### style: { [klass: string]: any; } (optional)
+Inline style object, passed to the inner canvas element as `[ngStyle]`
+
+#### styleClass: string (optional)
+CSS Class, passed to the inner canvas element
+
 #### errorCorrectionLevel: string (optional)
 Controls the amount of redundant information included to make the QR code 
 more likely to scan correctly if it is dirty / damaged
