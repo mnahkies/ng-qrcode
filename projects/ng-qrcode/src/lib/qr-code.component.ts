@@ -33,7 +33,11 @@ export class QrCodeComponent {
   size?: string | number
 
   @Input()
-  style?: { [klass: string]: any } | null;
+  style?: { 
+    // matches type of ngStyle https://angular.io/api/common/NgStyle
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [klass: string]: any 
+  } | null;
 
   @Input()
   styleClass?: string;
