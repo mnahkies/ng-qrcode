@@ -26,7 +26,7 @@
     "publish:gh-pages": "yarn build-demo-app && yarn gh-pages -d ./dist/ng-qrcode-demo/browser -b gh-pages --nojekyll",
     "test": "ng test",
     "lint": "ng lint",
-    "ci-pipeline": "yarn ci-build && yarn ci-test && yarn ci-lint",
+    "ci-pipeline": "yarn clean && yarn ci-build && yarn ci-test && yarn ci-lint",
     "postci-pipeline": "cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
     "ci-build": "ng build --project ng-qrcode --configuration production && ng build --project=ng-qrcode-demo --configuration production",
     "ci-test": "ng test --code-coverage",
