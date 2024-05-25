@@ -22,7 +22,7 @@
     "start": "ng serve",
     "build": "ng build --project ng-qrcode --configuration production",
     "build-for-publish": "ng build --project ng-qrcode --configuration production && cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
-    "build-demo-app": "ng build --project=ng-qrcode-demo --configuration production",
+    "build-demo-app": "ng build --project=ng-qrcode-demo --configuration production --base-href '/ng-qrcode/'",
     "publish:gh-pages": "yarn build-demo-app && yarn gh-pages -d ./dist/ng-qrcode-demo/browser -b gh-pages --nojekyll",
     "test": "ng test",
     "lint": "ng lint",
