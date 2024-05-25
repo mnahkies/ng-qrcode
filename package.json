@@ -1,12 +1,13 @@
 {
   "name": "ng-qrcode",
-  "description": "Simple AOT compatible QR code generator for your Angular project.",
+  "private": true,
   "version": "0.0.0",
-  "license": "MIT",
   "author": {
     "name": "Michael Nahkies",
     "email": "support@nahkies.co.nz"
   },
+  "license": "MIT",
+  "description": "Simple AOT compatible QR code generator for your Angular project.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mnahkies/ng-qrcode.git"
@@ -14,9 +15,10 @@
   "bugs": {
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
-  "packageManager": "yarn@1.22.19",
   "scripts": {
-    "ng": "ng",
+    "postinstall": "husky",
+    "clean": "rm -rf ./dist ./coverage",
+    "docs:generate": "markdown-toc -i --bullets=- ./README.md",
     "start": "ng serve",
     "build": "ng build --project ng-qrcode --configuration production",
     "build-for-publish": "ng build --project ng-qrcode --configuration production && cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
@@ -29,7 +31,6 @@
     "ci-test": "ng test --code-coverage",
     "ci-lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
@@ -63,6 +64,7 @@
     "@typescript-eslint/parser": "7.9.0",
     "angular-cli-ghpages": "^1.0.7",
     "eslint": "^8.54.0",
+    "husky": "^9.0.11",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "^6.4.2",
@@ -71,19 +73,22 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "karma-mocha-reporter": "^2.2.5",
+    "lint-staged": "^15.2.5",
+    "markdown-toc": "^1.2.0",
     "ng-packagr": "^18.0.0",
     "ts-node": "^10.9.1",
     "typescript": "~5.4.5"
   },
-  "keywords": [
-    "qr",
-    "code",
-    "qrcode",
-    "qr-code",
-    "angular",
-    "angular2",
-    "ng",
-    "ngx",
-    "ng2"
-  ]
+  "lint-staged": {
+    "*.{ts,js}": [
+      "ng lint"
+    ],
+    "*.md": [
+      "sh -c 'yarn docs:generate'"
+    ]
+  },
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "packageManager": "yarn@1.22.19"
 }
