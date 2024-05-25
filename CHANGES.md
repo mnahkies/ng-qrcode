@@ -1,3 +1,7 @@
+# 18.0.0 - 2024-05-25
+- Support Angular 18 (#98)
+- Add new inputs `style` / `styleClass` (#88)
+
 # 17.0.0 - 2023-11-20
 - Support Angular 17 (#84 / #85)
 

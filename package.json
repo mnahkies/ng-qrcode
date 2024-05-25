@@ -1,12 +1,13 @@
 {
   "name": "ng-qrcode",
-  "description": "Simple AOT compatible QR code generator for your Angular project.",
+  "private": true,
   "version": "0.0.0",
-  "license": "MIT",
   "author": {
     "name": "Michael Nahkies",
     "email": "support@nahkies.co.nz"
   },
+  "license": "MIT",
+  "description": "Simple AOT compatible QR code generator for your Angular project.",
   "repository": {
     "type": "git",
     "url": "https://github.com/mnahkies/ng-qrcode.git"
@@ -14,55 +15,55 @@
   "bugs": {
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
-  "packageManager": "yarn@1.22.19",
   "scripts": {
-    "ng": "ng",
+    "postinstall": "husky",
+    "clean": "rm -rf ./dist ./coverage",
+    "docs:generate": "markdown-toc -i --bullets=- ./README.md",
     "start": "ng serve",
     "build": "ng build --project ng-qrcode --configuration production",
     "build-for-publish": "ng build --project ng-qrcode --configuration production && cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
-    "build-publish-demo-app": "ng build --project=ng-qrcode-demo --configuration production --base-href \"/ng-qrcode/\" && ngh --dir=./dist/ng-qrcode-demo",
+    "build-demo-app": "ng build --project=ng-qrcode-demo --configuration production",
+    "publish:gh-pages": "yarn build-demo-app && yarn gh-pages -d ./dist/ng-qrcode-demo/browser -b gh-pages --nojekyll",
     "test": "ng test",
     "lint": "ng lint",
-    "ci-pipeline": "yarn ci-build && yarn ci-test && yarn ci-lint",
+    "ci-pipeline": "yarn clean && yarn ci-build && yarn ci-test && yarn ci-lint",
     "postci-pipeline": "cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
     "ci-build": "ng build --project ng-qrcode --configuration production && ng build --project=ng-qrcode-demo --configuration production",
     "ci-test": "ng test --code-coverage",
     "ci-lint": "ng lint"
   },
-  "private": true,
   "dependencies": {
-    "@angular/animations": "^17.0.3",
-    "@angular/common": "^17.0.3",
-    "@angular/compiler": "^17.0.3",
-    "@angular/core": "^17.0.3",
-    "@angular/forms": "^17.0.3",
-    "@angular/platform-browser": "^17.0.3",
-    "@angular/platform-browser-dynamic": "^17.0.3",
-    "@angular/router": "^17.0.3",
-    "core-js": "^3.33.3",
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
     "qrcode": "^1.5.3",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.2",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.0.1",
-    "@angular-eslint/builder": "17.4.1",
-    "@angular-eslint/eslint-plugin": "17.4.1",
-    "@angular-eslint/eslint-plugin-template": "17.4.1",
-    "@angular-eslint/schematics": "17.4.1",
-    "@angular-eslint/template-parser": "17.4.1",
-    "@angular/cli": "^17.0.1",
-    "@angular/compiler-cli": "^17.0.3",
-    "@angular/language-service": "^17.0.3",
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular-eslint/builder": "18.0.0-alpha.1",
+    "@angular-eslint/eslint-plugin": "18.0.0-alpha.1",
+    "@angular-eslint/eslint-plugin-template": "18.0.0-alpha.1",
+    "@angular-eslint/schematics": "18.0.0-alpha.1",
+    "@angular-eslint/template-parser": "18.0.0-alpha.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
+    "@angular/language-service": "^18.0.0",
     "@types/jasmine": "~5.1.2",
-    "@types/jasminewd2": "^2.0.13",
     "@types/node": "^20.9.2",
     "@types/qrcode": "^1.5.5",
-    "@typescript-eslint/eslint-plugin": "7.9.0",
-    "@typescript-eslint/parser": "7.9.0",
-    "angular-cli-ghpages": "^1.0.7",
+    "@typescript-eslint/eslint-plugin": "7.10.0",
+    "@typescript-eslint/parser": "7.10.0",
     "eslint": "^8.54.0",
+    "gh-pages": "^6.1.1",
+    "husky": "^9.0.11",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "^6.4.2",
@@ -70,20 +71,18 @@
     "karma-coverage": "^2.2.1",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "ng-packagr": "^17.0.1",
-    "ts-node": "^10.9.1",
-    "typescript": "~5.2.2"
+    "lint-staged": "^15.2.5",
+    "markdown-toc": "^1.2.0",
+    "ng-packagr": "^18.0.0",
+    "typescript": "~5.4.5"
   },
-  "keywords": [
-    "qr",
-    "code",
-    "qrcode",
-    "qr-code",
-    "angular",
-    "angular2",
-    "ng",
-    "ngx",
-    "ng2"
-  ]
+  "lint-staged": {
+    "*.md": [
+      "sh -c 'yarn docs:generate'"
+    ]
+  },
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "packageManager": "yarn@4.2.2"
 }

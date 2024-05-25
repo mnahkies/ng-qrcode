@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+yarn lint
+yarn lint-staged

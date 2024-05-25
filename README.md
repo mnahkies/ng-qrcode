@@ -6,12 +6,36 @@
 Easy to use QR code generator for Angular projects.
 
 **Features:**
-* Compatible with Angular 17
+* Compatible with Angular 18
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas
 
 **[Change Log](CHANGES.md)**
+
+<!-- toc -->
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+    - [Component](#component)
+      - [value: string (required)](#value-string-required)
+      - [size: string | number (optional)](#size-string--number-optional)
+      - [darkColor: RGBAColor (optional)](#darkcolor-rgbacolor-optional)
+      - [lightColor: RGBAColor (optional)](#lightcolor-rgbacolor-optional)
+      - [style: { [klass: string]: any; } (optional)](#style--klass-string-any--optional)
+      - [styleClass: string (optional)](#styleclass-string-optional)
+      - [errorCorrectionLevel: string (optional)](#errorcorrectionlevel-string-optional)
+      - [centerImageSrc: string (optional)](#centerimagesrc-string-optional)
+      - [centerImageSize: string | number (optional)](#centerimagesize-string--number-optional)
+      - [margin: number (optional)](#margin-number-optional)
+    - [Directive](#directive)
+- [Demo](#demo)
+- [Angular compatibility matrix](#angular-compatibility-matrix)
+- [Known / Common Issues](#known--common-issues)
+  - [Reference Error 'global' is not defined](#reference-error-global-is-not-defined)
+- [Footnote / Package History](#footnote--package-history)
+
+<!-- tocstop -->
 
 ## Installation
 Add as a dependency to your angular application:
@@ -21,17 +45,22 @@ Add as a dependency to your angular application:
 ## Usage
 Import into your consuming module (Eg: AppModule):
 
-     import { QrCodeModule } from 'ng-qrcode';
-     
-     @NgModule({
-       imports: [
-         QrCodeModule
-       ]
-     })
+```typescript
+import { QrCodeModule } from 'ng-qrcode';
+
+@NgModule({
+  imports: [
+    QrCodeModule
+  ]
+})
+```
 
 ### Component
-
-    <qr-code value="Yo world!" size="300" errorCorrectionLevel="M"></qr-code>
+```angular17html
+<qr-code value="Hello world!" 
+         size="300" 
+         errorCorrectionLevel="M" />
+``` 
 
 #### value: string (required)  
 The value to encode in the QR code, eg: a url
@@ -106,6 +135,7 @@ major version.
 
 | Angular Version | ng-qrcode Versions |
 |-----------------|--------------------|
+| ^18             | ^18                |
 | ^17             | ^17                |
 | ^16             | ^16                |
 | ^15             | ^8                 |
@@ -117,7 +147,7 @@ major version.
 | ^7              | ^2                 |
 
 
-# Known/Common Issues
+# Known / Common Issues
 
 ## Reference Error 'global' is not defined
 Essentially in some cases Angular will bundle a version of the buffer library that is not
@@ -135,4 +165,4 @@ The source for this was lost, and this repository is a re-write, first released
 as v2.0.0 that uses the `qrcode` npm package to generate QR Codes.
 
 v2.0.0 should be backwards compatible, aside from a rename of the exported NgModule from 
-QRCodeModule -> QrCodeModule for consistency. 
+QRCodeModule -> QrCodeModule for consistency.
