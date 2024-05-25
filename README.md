@@ -45,17 +45,22 @@ Add as a dependency to your angular application:
 ## Usage
 Import into your consuming module (Eg: AppModule):
 
-     import { QrCodeModule } from 'ng-qrcode';
-     
-     @NgModule({
-       imports: [
-         QrCodeModule
-       ]
-     })
+```typescript
+import { QrCodeModule } from 'ng-qrcode';
+
+@NgModule({
+  imports: [
+    QrCodeModule
+  ]
+})
+```
 
 ### Component
-
-    <qr-code value="Yo world!" size="300" errorCorrectionLevel="M"></qr-code>
+```angular17html
+<qr-code value="Hello world!" 
+         size="300" 
+         errorCorrectionLevel="M" />
+``` 
 
 #### value: string (required)  
 The value to encode in the QR code, eg: a url
