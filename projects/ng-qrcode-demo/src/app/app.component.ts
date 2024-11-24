@@ -5,6 +5,7 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
+  standalone: false,
 })
 export class AppComponent {
 
@@ -25,9 +26,9 @@ export class AppComponent {
   get example() {
     return `
 <qr-code value="${ this.value }"
-         size="${ this.size }"${this.darkColor ? `
-         darkColor="${this.darkColor}"` : ""}${this.lightColor ? `
-         lightColor="${this.lightColor}"` : ""}
+         size="${ this.size }"${ this.darkColor ? `
+         darkColor="${ this.darkColor }"` : "" }${ this.lightColor ? `
+         lightColor="${ this.lightColor }"` : "" }
          errorCorrectionLevel="${ this.errorCorrectionLevel }"
          centerImageSrc="${ this.centerImageSrc }"
          centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
