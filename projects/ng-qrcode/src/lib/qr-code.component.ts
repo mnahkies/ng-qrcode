@@ -23,6 +23,7 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
     }
   `,
   styles: [],
+  standalone: false,
 })
 export class QrCodeComponent {
 
@@ -33,14 +34,14 @@ export class QrCodeComponent {
   size?: string | number
 
   @Input()
-  style?: { 
+  style?: {
     // matches type of ngStyle https://angular.io/api/common/NgStyle
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [klass: string]: any 
-  } | null;
+    [klass: string]: any
+  } | null
 
   @Input()
-  styleClass?: string;
+  styleClass?: string
 
   @Input()
   darkColor?: RGBAColor
