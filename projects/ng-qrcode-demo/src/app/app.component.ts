@@ -1,10 +1,16 @@
 import { Component } from "@angular/core"
-import { QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
+import { FormsModule } from "@angular/forms"
+import { QrCodeComponent, QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
+  standalone: true,
+  imports: [
+    QrCodeComponent,
+    FormsModule,
+  ]
 })
 export class AppComponent {
 
@@ -25,13 +31,13 @@ export class AppComponent {
   get example() {
     return `
 <qr-code value="${ this.value }"
-         size="${ this.size }"${this.darkColor ? `
-         darkColor="${this.darkColor}"` : ""}${this.lightColor ? `
-         lightColor="${this.lightColor}"` : ""}
+         size="${ this.size }"${ this.darkColor ? `
+         darkColor="${ this.darkColor }"` : "" }${ this.lightColor ? `
+         lightColor="${ this.lightColor }"` : "" }
          errorCorrectionLevel="${ this.errorCorrectionLevel }"
          centerImageSrc="${ this.centerImageSrc }"
          centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
-         margin="${ this.margin }">
+         [margin]="${ this.margin }">
 </qr-code>`
   }
 

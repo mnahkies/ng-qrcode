@@ -6,7 +6,7 @@
 Easy to use QR code generator for Angular projects.
 
 **Features:**
-* Compatible with Angular 18
+* Compatible with Angular 19, uses `standalone` components
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode) 
   package to do the heavy lifting
 * Renders to HTML Canvas
@@ -16,6 +16,9 @@ Easy to use QR code generator for Angular projects.
 <!-- toc -->
 
   - [Installation](#installation)
+    - [Importing](#importing)
+      - [Standalone Component](#standalone-component)
+      - [NgModule](#ngmodule)
   - [Usage](#usage)
     - [Component](#component)
       - [value: string (required)](#value-string-required)
@@ -42,18 +45,44 @@ Add as a dependency to your angular application:
 
     npm install ng-qrcode --save
 
-## Usage
-Import into your consuming module (Eg: AppModule):
+### Importing
+This library ships with [standalone components](https://angular.dev/reference/migrations/standalone)
 
+How you consume it depends on whether you have migrated to standalone components (the default since Angular v19)
+
+#### Standalone Component
+
+Add the `QrCodeComponent` or `QrCodeDirective` to your `@Component` declarations `imports` array. Eg:
 ```typescript
-import { QrCodeModule } from 'ng-qrcode';
+import { QrCodeComponent } from 'ng-qrcode';
+
+@Component({
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
+  standalone: true,
+  imports: [
+    QrCodeComponent,
+  ]
+})
+export class AppComponent {
+  // ...
+}
+```
+#### NgModule
+
+If you're still using `NgModule` / non-standalone components, then you can add `QrCodeComponent` or `QrCodeDirective` to your `@NgModule` declarations `imports` array. Eg:
+```typescript
+import { QrCodeComponent } from 'ng-qrcode';
 
 @NgModule({
   imports: [
-    QrCodeModule
+    QrCodeComponent
   ]
 })
 ```
+
+## Usage
 
 ### Component
 ```angular17html
@@ -135,6 +164,7 @@ major version.
 
 | Angular Version | ng-qrcode Versions |
 |-----------------|--------------------|
+| ^19             | ^19                |
 | ^18             | ^18                |
 | ^17             | ^17                |
 | ^16             | ^16                |

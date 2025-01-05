@@ -1,4 +1,6 @@
+import { CommonModule } from "@angular/common"
 import { Component, Input } from "@angular/core"
+import { QrCodeDirective } from "./qr-code.directive"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
@@ -23,6 +25,8 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
     }
   `,
   styles: [],
+  standalone: true,
+  imports: [QrCodeDirective, CommonModule]
 })
 export class QrCodeComponent {
 
@@ -33,14 +37,14 @@ export class QrCodeComponent {
   size?: string | number
 
   @Input()
-  style?: { 
+  style?: {
     // matches type of ngStyle https://angular.io/api/common/NgStyle
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [klass: string]: any 
-  } | null;
+    [klass: string]: any
+  } | null
 
   @Input()
-  styleClass?: string;
+  styleClass?: string
 
   @Input()
   darkColor?: RGBAColor
