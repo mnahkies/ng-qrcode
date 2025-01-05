@@ -1,9 +1,18 @@
+# 19.0.1 - 2025-01-05
+- Bring back `QrCodeModule` for backwards compatibility
+
 # 19.0.0 - 2025-01-05
 - Support Angular 19 (#106)
+- `QrCodeComponent` and `QrCodeDirective` are now `standalone` components 
 
+<strike>
 *BREAKING CHANGES:* 
 - `QrCodeComponent` and `QrCodeDirective` are now `standalone` components
 - `QrCodeModule` has been removed
+</strike>
+
+Update: 19.0.1 brings back the `QrCodeModule` such that this should be a non-breaking change. It's
+still recommended to migrate away from using the `QrCodeModule`
 
 See the [readme](https://github.com/mnahkies/ng-qrcode#importing) for instructions on how to import the 
 components correctly after these changes, but **tldr; replace imports of `QrCodeModule` with `QrCodeComponent`** 
