@@ -1,5 +1,5 @@
 # 19.0.1 - 2025-01-05
-- Bring back `QrCodeModule` for backwards compatibility
+- Bring back `QrCodeModule` for backwards compatibility (#109)
 
 # 19.0.0 - 2025-01-05
 - Support Angular 19 (#106)
