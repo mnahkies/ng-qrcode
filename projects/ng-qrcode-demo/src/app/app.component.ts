@@ -37,7 +37,7 @@ export class AppComponent {
          errorCorrectionLevel="${ this.errorCorrectionLevel }"
          centerImageSrc="${ this.centerImageSrc }"
          centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
-         margin="${ this.margin }">
+         [margin]="${ this.margin }">
 </qr-code>`
   }
 
