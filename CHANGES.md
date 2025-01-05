@@ -1,3 +1,13 @@
+# 19.0.0 - 2025-01-05
+- Support Angular 19 (#106)
+
+*BREAKING CHANGES:* 
+- `QrCodeComponent` and `QrCodeDirective` are now `standalone` components
+- `QrCodeModule` has been removed
+
+See the [readme](https://github.com/mnahkies/ng-qrcode#importing) for instructions on how to import the 
+components correctly after these changes, but **tldr; replace imports of `QrCodeModule` with `QrCodeComponent`** 
+
 # 18.0.0 - 2024-05-25
 - Support Angular 18 (#98)
 - Add new inputs `style` / `styleClass` (#88)
