@@ -82,6 +82,8 @@ import { QrCodeComponent } from 'ng-qrcode';
 })
 ```
 
+There is also a deprecated `QrCodeModule` that can be imported.
+
 ## Usage
 
 ### Component
