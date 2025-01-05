@@ -1,4 +1,6 @@
+import { CommonModule } from "@angular/common"
 import { Component, Input } from "@angular/core"
+import { QrCodeDirective } from "./qr-code.directive"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
@@ -23,7 +25,8 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
     }
   `,
   styles: [],
-  standalone: false,
+  standalone: true,
+  imports: [QrCodeDirective, CommonModule]
 })
 export class QrCodeComponent {
 

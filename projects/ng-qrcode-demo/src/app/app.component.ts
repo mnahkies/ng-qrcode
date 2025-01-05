@@ -1,11 +1,16 @@
 import { Component } from "@angular/core"
-import { QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
+import { FormsModule } from "@angular/forms"
+import { QrCodeComponent, QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
-  standalone: false,
+  standalone: true,
+  imports: [
+    QrCodeComponent,
+    FormsModule,
+  ]
 })
 export class AppComponent {
 

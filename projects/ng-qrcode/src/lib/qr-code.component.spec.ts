@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing"
 
 import { QrCodeComponent } from "./qr-code.component"
-import { QrCodeDirective } from "./qr-code.directive"
 
 describe("QrCodeComponent", () => {
   let component: QrCodeComponent
@@ -9,9 +8,8 @@ describe("QrCodeComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [
+      imports: [
         QrCodeComponent,
-        QrCodeDirective,
       ],
     })
       .compileComponents()

@@ -7,7 +7,7 @@ const validColorRegex = /^#(?:[0-9a-fA-F]{3,4}){1,2}$/
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: `canvas[qrCode]`,
-  standalone: false,
+  standalone: true,
 })
 export class QrCodeDirective implements OnChanges {
 
