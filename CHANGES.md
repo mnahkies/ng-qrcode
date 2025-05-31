@@ -1,3 +1,6 @@
+# 19.1.0 - 2025-05-31
+- Add inputs for scale and maskPattern (#113)
+
 # 19.0.1 - 2025-01-05
 - Bring back `QrCodeModule` for backwards compatibility (#109)
 
