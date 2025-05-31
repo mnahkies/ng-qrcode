@@ -1,3 +1,6 @@
+# 20.0.0 - 2025-05-31
+- Support Angular 20 (#115)
+
 # 19.1.0 - 2025-05-31
 - Add inputs for scale and maskPattern (#113)
 
