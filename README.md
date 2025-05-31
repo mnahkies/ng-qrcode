@@ -31,6 +31,8 @@ Easy to use QR code generator for Angular projects.
       - [centerImageSrc: string (optional)](#centerimagesrc-string-optional)
       - [centerImageSize: string | number (optional)](#centerimagesize-string--number-optional)
       - [margin: number (optional)](#margin-number-optional)
+      - [scale: number (optional)](#scale-number-optional)
+      - [maskPattern: number (optional)](#maskpattern-number-optional)
     - [Directive](#directive)
 - [Demo](#demo)
 - [Angular compatibility matrix](#angular-compatibility-matrix)
@@ -146,6 +148,12 @@ An optional size in pixels to render the center image.
 #### margin: number (optional)
 An optional amount of margin to be rendered within the canvas element. Defaults to 4,
 where the unit is the size of one "dot" in the QR code.
+
+#### scale: number (optional)
+Only used when size not provided. Represents the number of pixels per module/dot. Defaults to 4.
+
+#### maskPattern: number (optional)
+Mask pattern used. Defaults to selecting the best based on content.
 
 ### Directive
 If the provided component is not flexible enough for you, there is also a [directive](projects/ng-qrcode/src/lib/qr-code.directive.ts)

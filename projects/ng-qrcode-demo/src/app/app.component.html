@@ -19,7 +19,8 @@
 
 <div class="container">
   <div class="body">
-
+    <h3>Install:</h3>
+    <pre>npm install ng-qrcode --save</pre>
     <h3>Inputs:</h3>
     <form ngForm>
       <label for="value">Value</label>
@@ -53,9 +54,16 @@
       <label for="margin">Margin</label>
       <input id="margin" name="margin" [(ngModel)]="margin"/>
 
+      <label for="scale">Scale</label>
+      <input id="scale" name="scale" [(ngModel)]="scale"/>
+
+      <label for="maskPattern">Mask Pattern</label>
+      <input id="maskPattern" name="maskPattern" [(ngModel)]="maskPattern"/>
     </form>
 
     <h3>Usage:</h3>
+    <button (click)="copyExample()" [innerText]="copyText"></button>
+
     <pre [innerText]="example">
   </pre>
 
@@ -68,7 +76,9 @@
                [errorCorrectionLevel]="errorCorrectionLevel"
                [centerImageSrc]="centerImageSrc"
                [centerImageSize]="centerImageSize"
-               [margin]="margin" />
+               [margin]="margin"
+               [scale]="scale"
+               [maskPattern]="maskPattern"/>
     </div>
   </div>
 </div>

@@ -14,6 +14,8 @@ import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
         [qrCodeCenterImageWidth]="centerImageSize"
         [qrCodeCenterImageHeight]="centerImageSize"
         [qrCodeMargin]="margin"
+        [qrScale]="scale"
+        [qrCodeMaskPattern]="maskPattern"
         [width]="size"
         [height]="size"
         [class]="styleClass"
@@ -64,4 +66,9 @@ export class QrCodeComponent {
   @Input()
   margin?: number
 
+  @Input()
+  scale?: number
+
+  @Input()
+  maskPattern?: number
 }
