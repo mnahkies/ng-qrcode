@@ -1,6 +1,6 @@
 import { Component } from "@angular/core"
 import { FormsModule } from "@angular/forms"
-import { QrCodeComponent, QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcode"
+import { QrCodeComponent, QrCodeErrorCorrectionLevel, QRCodeMaskPattern, RGBAColor } from "ng-qrcode"
 
 @Component({
   selector: "app-root",
@@ -10,7 +10,7 @@ import { QrCodeComponent, QrCodeErrorCorrectionLevel, RGBAColor } from "ng-qrcod
   imports: [
     QrCodeComponent,
     FormsModule,
-  ]
+  ],
 })
 export class AppComponent {
 
@@ -23,22 +23,37 @@ export class AppComponent {
   margin = 4
   darkColor?: RGBAColor
   lightColor?: RGBAColor
+  scale?: number
+  maskPattern?: QRCodeMaskPattern
+  copyText = "Copy"
 
   get centerImageSrc() {
     return this.showImage === "yes" ? "./assets/angular-logo.png" : undefined
   }
 
   get example() {
-    return `
-<qr-code value="${ this.value }"
-         size="${ this.size }"${ this.darkColor ? `
-         darkColor="${ this.darkColor }"` : "" }${ this.lightColor ? `
-         lightColor="${ this.lightColor }"` : "" }
-         errorCorrectionLevel="${ this.errorCorrectionLevel }"
-         centerImageSrc="${ this.centerImageSrc }"
-         centerImageSize="${ this.centerImageSize ? parseInt(this.centerImageSize, 10) : undefined }"
-         [margin]="${ this.margin }">
-</qr-code>`
+  return `<qr-code ${ [
+      this.value ? `value="${ this.value }"` : undefined,
+      this.size ? `size="${ this.size }"` : undefined,
+      this.darkColor ? `darkColor="${ this.darkColor }"` : undefined,
+      this.lightColor ? `lightColor="${ this.lightColor }"` : undefined,
+      this.errorCorrectionLevel ? `errorCorrectionLevel="${ this.errorCorrectionLevel }"` : undefined,
+      this.centerImageSrc ? `centerImageSrc="${ this.centerImageSrc }"` : undefined,
+      this.centerImageSize ? `centerImageSize="${ this.centerImageSize }"` : undefined,
+      this.margin ? `margin="${ this.margin }"` : undefined,
+      this.scale ? `scale="${ this.scale }"` : undefined,
+      this.maskPattern ? `maskPattern="${ this.maskPattern }"` : undefined,
+    ].filter(Boolean).join("\n\t ") }/>
+`
   }
 
+  copyExample() {
+    navigator.clipboard.writeText(this.example)
+      .then(() => {
+        this.copyText = "Copied!"
+        setTimeout(() => {
+          this.copyText = "Copy"
+        }, 2000)
+      })
+  }
 }

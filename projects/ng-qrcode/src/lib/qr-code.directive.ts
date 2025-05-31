@@ -1,6 +1,6 @@
 import { Directive, Input, isDevMode, OnChanges, ViewContainerRef } from "@angular/core"
 import qrcode from "qrcode"
-import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
+import { QrCodeErrorCorrectionLevel, QRCodeMaskPattern, RGBAColor } from "./types"
 
 const validColorRegex = /^#(?:[0-9a-fA-F]{3,4}){1,2}$/
 
@@ -37,6 +37,12 @@ export class QrCodeDirective implements OnChanges {
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeMargin") margin = 16
+
+  @Input()
+  qrScale?: number | undefined
+
+  @Input()
+  qrCodeMaskPattern?: QRCodeMaskPattern | undefined
 
   private centerImage?: HTMLImageElement
 
@@ -94,6 +100,8 @@ export class QrCodeDirective implements OnChanges {
         errorCorrectionLevel,
         width: this.width,
         margin: this.margin,
+        scale: this.qrScale,
+        maskPattern: this.qrCodeMaskPattern,
         color: {
           dark,
           light,
