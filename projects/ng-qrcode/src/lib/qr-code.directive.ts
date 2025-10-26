@@ -47,6 +47,7 @@ export class QrCodeDirective implements OnChanges {
   private centerImage?: HTMLImageElement
 
   constructor(
+    // eslint-disable-next-line @angular-eslint/prefer-inject
     private viewContainerRef: ViewContainerRef,
   ) {
   }
