@@ -1,0 +1,56 @@
+name: publish
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          registry-url: "https://registry.npmjs.org"
+          node-version-file: '.nvmrc'
+          cache: "pnpm"
+
+      - name: Validate tag matches package.json
+        run: |
+          TAG_VERSION="${{ github.ref_name }}"
+          PKG_VERSION=$(jq -r .version projects/ng-qrcode/package.json)
+
+          echo "Git tag version: $TAG_VERSION"
+          echo "package.json version: $PKG_VERSION"
+
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "ERROR: Git tag does not match package.json version"
+            exit 1
+          fi
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run build-for-publish
+
+      - name: Publish to npm
+        working-directory: ./dist/ng-qrcode
+        run: |
+          pnpm publish
+
+      - name: Publish documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          pnpm run publish:gh-pages

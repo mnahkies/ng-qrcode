@@ -1,3 +1,7 @@
+# 20.0.1 - 2025-10-26
+- Adopt trusted publishers (#121)
+- Switch to `pnpm` and adopt a 1 week minimum release age for dependencies (#116)
+
 # 20.0.0 - 2025-05-31
 - Support Angular 20 (#115)
 

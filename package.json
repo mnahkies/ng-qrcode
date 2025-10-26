@@ -16,18 +16,18 @@
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
   "scripts": {
-    "postinstall": "husky",
+    "prepare": "husky",
     "clean": "rm -rf ./dist ./coverage",
     "docs:generate": "node ./scripts/generate-toc.mjs",
     "start": "ng serve",
     "build": "ng build --project ng-qrcode --configuration production",
-    "build-for-publish": "ng build --project ng-qrcode --configuration production && cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
+    "build-for-publish": "ng build --project ng-qrcode --configuration production && pnpm run copy:docs",
     "build-demo-app": "ng build --project=ng-qrcode-demo --configuration production --base-href '/ng-qrcode/'",
     "publish:gh-pages": "pnpm run build-demo-app && pnpm exec gh-pages -d ./dist/ng-qrcode-demo/browser -b gh-pages --nojekyll",
     "test": "ng test",
     "lint": "ng lint",
-    "ci-pipeline": "pnpm run clean && pnpm run ci-build && pnpm run ci-test && pnpm run ci-lint",
-    "postci-pipeline": "cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
+    "ci-pipeline": "pnpm run clean && pnpm run ci-build && pnpm run ci-test && pnpm run ci-lint && pnpm run copy:docs",
+    "copy:docs": "cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
     "ci-build": "ng build --project ng-qrcode --configuration production && ng build --project=ng-qrcode-demo --configuration production",
     "ci-test": "ng test --code-coverage",
     "ci-lint": "ng lint"
