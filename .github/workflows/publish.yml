@@ -28,7 +28,7 @@ jobs:
 
       - name: Validate tag matches package.json
         run: |
-          TAG_VERSION="${GITHUB_REF#refs/tags/v}"
+          TAG_VERSION="${{ github.ref_name }}"
           PKG_VERSION=$(jq -r .version projects/ng-qrcode/package.json)
 
           echo "Git tag version: $TAG_VERSION"
