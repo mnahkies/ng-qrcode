@@ -18,7 +18,7 @@
   "scripts": {
     "postinstall": "husky",
     "clean": "rm -rf ./dist ./coverage",
-    "docs:generate": "markdown-toc -i --bullets=- ./README.md",
+    "docs:generate": "node ./scripts/generate-toc.mjs",
     "start": "ng serve",
     "build": "ng build --project ng-qrcode --configuration production",
     "build-for-publish": "ng build --project ng-qrcode --configuration production && cp ./README.md ./CHANGES.md ./LICENSE ./dist/ng-qrcode/",
@@ -72,8 +72,9 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "lint-staged": "^16.2.4",
-    "markdown-toc": "^1.2.0",
     "ng-packagr": "^20.3.0",
+    "remark": "^15.0.1",
+    "remark-toc": "^9.0.0",
     "typescript": "~5.9.3"
   },
   "lint-staged": {
