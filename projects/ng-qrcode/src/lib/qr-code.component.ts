@@ -4,6 +4,7 @@ import { QrCodeDirective } from "./qr-code.directive"
 import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: "qr-code",
   template: `
     @if (value) {
