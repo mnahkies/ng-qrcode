@@ -5,21 +5,19 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "ES2022",
+    "module": "preserve",
     "target": "ES2022",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
     "importHelpers": true,
     "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
     "paths": {
       "ng-qrcode": [
         "projects/ng-qrcode/src/public-api.ts"
@@ -34,7 +32,6 @@
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    // todo: currently doesn't seem to understand defaults on Inputs
-    //    "strictTemplates": true
+    "strictTemplates": true
   }
 }

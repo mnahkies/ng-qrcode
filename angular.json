@@ -59,7 +59,6 @@
             },
             "index": "projects/ng-qrcode-demo/src/index.html",
             "polyfills": [
-              "zone.js"
             ],
             "tsConfig": "projects/ng-qrcode-demo/tsconfig.app.json",
             "assets": [
@@ -124,8 +123,6 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
-              "zone.js/testing"
             ],
             "tsConfig": "projects/ng-qrcode-demo/tsconfig.spec.json",
             "karmaConfig": "projects/ng-qrcode-demo/karma.conf.js",

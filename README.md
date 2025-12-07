@@ -7,41 +7,39 @@ Easy to use QR code generator for Angular projects.
 
 **Features:**
 
-* Compatible with Angular 20, uses `standalone` components
+* Compatible with Angular 21, uses `standalone` components
 * Leverages the widely used [qrcode](https://www.npmjs.com/package/qrcode)
   package to do the heavy lifting
 * Renders to HTML Canvas
 
 **[Change Log](CHANGES.md)**
 
-<!-- toc -->
+## Contents
 
-* [Installation](#installation)
-  * [Importing](#importing)
-    * [Standalone Component](#standalone-component)
-    * [NgModule](#ngmodule)
-* [Usage](#usage)
-  * [Component](#component)
-    * [value: string (required)](#value-string-required)
-    * [size: string | number (optional)](#size-string--number-optional)
-    * [darkColor: RGBAColor (optional)](#darkcolor-rgbacolor-optional)
-    * [lightColor: RGBAColor (optional)](#lightcolor-rgbacolor-optional)
-    * [style: { \[klass: string\]: any; } (optional)](#style--klass-string-any--optional)
-    * [styleClass: string (optional)](#styleclass-string-optional)
-    * [errorCorrectionLevel: string (optional)](#errorcorrectionlevel-string-optional)
-    * [centerImageSrc: string (optional)](#centerimagesrc-string-optional)
-    * [centerImageSize: string | number (optional)](#centerimagesize-string--number-optional)
-    * [margin: number (optional)](#margin-number-optional)
-    * [scale: number (optional)](#scale-number-optional)
-    * [maskPattern: number (optional)](#maskpattern-number-optional)
-  * [Directive](#directive)
+* * [Installation](#installation)
+    * [Importing](#importing)
+      * [Standalone Component](#standalone-component)
+      * [NgModule](#ngmodule)
+  * [Usage](#usage)
+    * [Component](#component)
+      * [value: string (required)](#value-string-required)
+      * [size: string | number (optional)](#size-string--number-optional)
+      * [darkColor: RGBAColor (optional)](#darkcolor-rgbacolor-optional)
+      * [lightColor: RGBAColor (optional)](#lightcolor-rgbacolor-optional)
+      * [style: { \[klass: string\]: any; } (optional)](#style--klass-string-any--optional)
+      * [styleClass: string (optional)](#styleclass-string-optional)
+      * [errorCorrectionLevel: string (optional)](#errorcorrectionlevel-string-optional)
+      * [centerImageSrc: string (optional)](#centerimagesrc-string-optional)
+      * [centerImageSize: string | number (optional)](#centerimagesize-string--number-optional)
+      * [margin: number (optional)](#margin-number-optional)
+      * [scale: number (optional)](#scale-number-optional)
+      * [maskPattern: number (optional)](#maskpattern-number-optional)
+    * [Directive](#directive)
 * [Demo](#demo)
 * [Angular compatibility matrix](#angular-compatibility-matrix)
 * [Known / Common Issues](#known--common-issues)
   * [Reference Error 'global' is not defined](#reference-error-global-is-not-defined)
 * [Footnote / Package History](#footnote--package-history)
-
-<!-- tocstop -->
 
 ## Installation
 
@@ -198,6 +196,7 @@ major version.
 
 | Angular Version | ng-qrcode Versions |
 |-----------------|--------------------|
+| ^21             | ^21                |
 | ^20             | ^20                |
 | ^19             | ^19                |
 | ^18             | ^18                |
