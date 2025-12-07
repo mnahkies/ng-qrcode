@@ -25,8 +25,8 @@ export class QrCodeDirective implements OnChanges {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCodeErrorCorrectionLevel") errorCorrectionLevel?: QrCodeErrorCorrectionLevel = QrCodeDirective.DEFAULT_ERROR_CORRECTION_LEVEL
 
-  @Input() width?: number|string
-  @Input() height?: number|string
+  @Input() width?: number | string
+  @Input() height?: number | string
   @Input() darkColor?: RGBAColor = "#000000FF"
   @Input() lightColor?: RGBAColor = "#FFFFFFFF"
 
@@ -38,7 +38,7 @@ export class QrCodeDirective implements OnChanges {
   @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input("qrCodeMargin") margin?:number = 16
+  @Input("qrCodeMargin") margin?: number = 16
 
   @Input()
   qrScale?: number | undefined
@@ -156,25 +156,26 @@ export class QrCodeDirective implements OnChanges {
 
 }
 
-function getOptionalInt(value: string|number): number;
-function getOptionalInt(value: string|number|undefined): number | undefined;
-function getOptionalInt(value: string|number|undefined): number | undefined {
+export function getOptionalInt(value: string | number): number;
+export function getOptionalInt(value: string | number | undefined): number | undefined;
+export function getOptionalInt(value: string | number | undefined): number | undefined {
   if (value === undefined || value === "") {
     return undefined
   }
 
   if (typeof value === "string") {
 
-    if(!validNumberRegex.test(value)){
-      throw new Error(`'${value}' is not a valid number`)
+    if (!validNumberRegex.test(value)) {
+      throw new Error(`'${ value }' is not a valid number`)
     }
 
-    return parseInt(value, 10)
+    return parseFloat(value)
   }
 
-  return value}
+  return value
+}
 
-function getIntOrDefault(value: string | number | undefined, defaultValue: number): number {
+export function getIntOrDefault(value: string | number | undefined, defaultValue: number): number {
   if (value === undefined || value === "") {
     return defaultValue
   }
