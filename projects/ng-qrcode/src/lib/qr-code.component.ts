@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common"
 import { Component, Input } from "@angular/core"
 import { QrCodeDirective } from "./qr-code.directive"
-import { QrCodeErrorCorrectionLevel, RGBAColor } from "./types"
+import { QrCodeErrorCorrectionLevel, QRCodeMaskPattern, RGBAColor } from "./types"
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -71,5 +71,5 @@ export class QrCodeComponent {
   scale?: number
 
   @Input()
-  maskPattern?: number
+  maskPattern?: QRCodeMaskPattern
 }

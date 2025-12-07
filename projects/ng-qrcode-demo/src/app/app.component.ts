@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   get example() {
-  return `<qr-code ${ [
+    return `<qr-code ${ [
       this.value ? `value="${ this.value }"` : undefined,
       this.size ? `size="${ this.size }"` : undefined,
       this.darkColor ? `darkColor="${ this.darkColor }"` : undefined,
