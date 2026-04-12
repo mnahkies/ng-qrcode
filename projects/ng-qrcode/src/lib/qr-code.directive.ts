@@ -38,10 +38,10 @@ export class QrCodeDirective implements OnChanges {
   @Input("qrCodeCenterImageHeight") centerImageHeight?: number | string
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
-  @Input("qrCodeMargin") margin?: number = 16
+  @Input("qrCodeMargin") margin?: number | string = 16
 
   @Input()
-  qrScale?: number | undefined
+  qrScale?: number | string | undefined
 
   @Input()
   qrCodeMaskPattern?: QRCodeMaskPattern | undefined
@@ -103,8 +103,8 @@ export class QrCodeDirective implements OnChanges {
         version: this.version,
         errorCorrectionLevel,
         width: getOptionalInt(this.width),
-        margin: this.margin,
-        scale: this.qrScale,
+        margin: getOptionalInt(this.margin),
+        scale: getOptionalInt(this.qrScale),
         maskPattern: this.qrCodeMaskPattern,
         color: {
           dark,

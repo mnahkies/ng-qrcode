@@ -65,10 +65,10 @@ export class QrCodeComponent {
   centerImageSize?: string | number
 
   @Input()
-  margin?: number
+  margin?: string | number
 
   @Input()
-  scale?: number
+  scale?: string | number
 
   @Input()
   maskPattern?: QRCodeMaskPattern
