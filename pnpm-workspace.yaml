@@ -2,3 +2,10 @@ minimumReleaseAge: 10080 # 7 days in minutes
 
 # GH actions doesn't checkout the branch
 gitChecks: false
+
+allowBuilds:
+  '@parcel/watcher': false
+  esbuild: false
+  less: false
+  lmdb: false
+  msgpackr-extract: false
