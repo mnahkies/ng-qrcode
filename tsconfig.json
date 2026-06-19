@@ -1,13 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "preserve",
     "target": "ES2022",
-    "importHelpers": true,
+    "module": "preserve",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -20,18 +15,35 @@
     "esModuleInterop": true,
     "paths": {
       "ng-qrcode": [
-        "projects/ng-qrcode/src/public-api.ts"
+        "./projects/ng-qrcode/src/public-api.ts"
       ],
       "ng-qrcode/*": [
-        "projects/ng-qrcode/src/*"
+        "./projects/ng-qrcode/src/*"
       ]
-    },
-    "useDefineForClassFields": false
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ng-qrcode/tsconfig.lib.json",
+    },
+    {
+      "path": "./projects/ng-qrcode/tsconfig.lib.prod.json",
+    },
+    {
+      "path": "./projects/ng-qrcode/tsconfig.spec.json",
+    },
+    {
+      "path": "./projects/ng-qrcode-demo/tsconfig.app.json",
+    },
+    {
+      "path": "./projects/ng-qrcode-demo/tsconfig.spec.json",
+    }
+  ]
 }

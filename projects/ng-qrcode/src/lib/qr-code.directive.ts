@@ -16,7 +16,6 @@ export class QrCodeDirective implements OnChanges {
   static readonly DEFAULT_ERROR_CORRECTION_LEVEL: QrCodeErrorCorrectionLevel = "M"
   static readonly DEFAULT_CENTER_IMAGE_SIZE = 40
 
-  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input("qrCode") value!: string
 
   // eslint-disable-next-line @angular-eslint/no-input-rename

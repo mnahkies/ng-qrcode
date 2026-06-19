@@ -8,6 +8,9 @@
     "src/main.ts"
   ],
   "include": [
-    "projects/ng-qrcode-demo/src/**/*.d.ts"
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
   ]
 }
