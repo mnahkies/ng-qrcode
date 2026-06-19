@@ -16,7 +16,7 @@
     "url": "https://github.com/mnahkies/ng-qrcode/issues"
   },
   "scripts": {
-    "prepare": "husky && pnpm run sync:packageManagerVersion",
+    "prepare": "husky",
     "sync:packageManagerVersion": "pnpm dlx corepack use pnpm@$(mise tool pnpm -J | jq -r '.requested_versions[0]')",
     "clean": "rm -rf ./dist ./coverage",
     "docs:generate": "node ./scripts/generate-toc.mjs",
