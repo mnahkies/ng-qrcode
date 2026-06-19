@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common"
-import { Component, Input } from "@angular/core"
+import { Component, Input, ChangeDetectionStrategy } from "@angular/core"
 import { QrCodeDirective } from "./qr-code.directive"
 import { QrCodeErrorCorrectionLevel, QRCodeMaskPattern, RGBAColor } from "./types"
 
@@ -29,6 +29,7 @@ import { QrCodeErrorCorrectionLevel, QRCodeMaskPattern, RGBAColor } from "./type
   `,
   styles: [],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [QrCodeDirective, CommonModule]
 })
 export class QrCodeComponent {

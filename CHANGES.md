@@ -1,3 +1,11 @@
+# 22.0.0 - 2026-06-19
+- Support Angular 22 (#140)
+- Fix types for margin / scale (#132)
+- Adopt `pnpm stage publish` (#139)
+
+# 21.0.0 - 2025-12-07
+- Support Angular 21 (#126)
+
 # 20.0.1 - 2025-10-26
 - Adopt trusted publishers (#121)
 - Switch to `pnpm` and adopt a 1 week minimum release age for dependencies (#116)

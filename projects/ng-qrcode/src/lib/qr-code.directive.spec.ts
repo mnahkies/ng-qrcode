@@ -1,6 +1,7 @@
 import { provideZonelessChangeDetection } from "@angular/core"
 import { TestBed } from "@angular/core/testing"
 import { getIntOrDefault, getOptionalInt } from "ng-qrcode"
+import {describe, beforeEach, it, expect} from 'vitest'
 
 describe("QrCode Directive", () => {
   beforeEach(async () => {
