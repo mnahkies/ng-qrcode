@@ -97,82 +97,31 @@ There is also a deprecated `QrCodeModule` that can be imported.
 ### Component
 
 ```angular17html
-<qr-code value="Hello world!" 
-         size="300" 
+<qr-code value="Hello world!"
+         size="300"
          errorCorrectionLevel="M" />
 ```
 
-#### value: string (required)
+**value** is the only _required_ property
 
-The value to encode in the QR code, eg: a url
+| property        | type                       | description      | default     |
+| --------------- | :------------------------: | ---------------- | ----------- |
+| **value**       | string                     | The value to encode in the QR code, eg: a url | |
+| size            | string \| number           | An optional size in pixels to render at | automatic size based on the value provided (recommended) |
+| darkColor       | RGBAColor                  | An RGBA Hex string to use as the color for the dark / filled modules. If an invalid value is passed, the default will be used. | black `#000000FF`
+| lightColor      | RGBAColor                  | An RGBA Hex string to use as the color for the empty space. If an invalid value is passed, the default will be used. | white `#FFFFFFFF`
+| style           | { \[klass: string]: any; } | Inline style object, passed to the inner canvas element as `[ngStyle]` |
+| styleClass      | string                     | CSS Class, passed to the inner canvas element |
+| errorCorrectionLevel | string                | Controls the amount of redundant information included to make the QR code more likely to scan correctly if it is dirty / damaged <br><br>_Note below:_ \* | "M"
+| centerImageSrc  | string                     | A URI suitable to use an a [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) src property to load and render in the center of the QR code. <br><br>_Note below:_ \*\*
+| centerImageSize | string \| number           | An optional size in pixels to render the center image. | 60 |
+| margin          | number                     | An optional amount of margin to be rendered within the canvas element. Defaults to 4, where the unit is the size of one "dot" in the QR code.
+| scale           | number                     | Only used when size not provided. Represents the number of pixels per module/dot. Defaults to 4. |
+| maskPattern     | number                     | Mask pattern used. Defaults to selecting the best based on content. |
 
-#### size: string | number (optional)
+\* _errorCorrectionLevel note:_ Valid values: "L", "M", "Q", "H" - where "L" is the lowest amount of redundancy, and "H" is the highest. See: [error correction level](https://www.npmjs.com/package/qrcode#error-correction-level) for further details
 
-An optional size in pixels to render at
-
-**Default:** automatic size based on the value provided (recommended)
-
-#### darkColor: RGBAColor (optional)
-
-An RGBA Hex string to use as the color for the dark / filled modules.
-If an invalid value is passed, the default will be used.
-
-**Default** black ("#000000FF")
-
-#### lightColor: RGBAColor (optional)
-
-An RGBA Hex string to use as the color for the empty space.
-If an invalid value is passed, the default will be used.
-
-**Default** white ("#FFFFFFFF")
-
-#### style: { \[klass: string]: any; } (optional)
-
-Inline style object, passed to the inner canvas element as `[ngStyle]`
-
-#### styleClass: string (optional)
-
-CSS Class, passed to the inner canvas element
-
-#### errorCorrectionLevel: string (optional)
-
-Controls the amount of redundant information included to make the QR code
-more likely to scan correctly if it is dirty / damaged
-
-**Default:** "M"
-
-Valid values: "L", "M", "Q", "H" - where "L" is the lowest
-amount of redundancy, and "H" is the highest
-
-See: https://www.npmjs.com/package/qrcode#error-correction-level for further details
-
-#### centerImageSrc: string (optional)
-
-A URI suitable to use an a [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) src
-property to load and render in the center of the QR code.
-
-**Note:** the image will obscure part of the QR code, and therefore you should err on
-the side of a higher error correction level, anecdotally when the size is less than 1/4
-of the size of the code, with at least "M" error correction, it is generally still scannable.
-
-#### centerImageSize: string | number (optional)
-
-An optional size in pixels to render the center image.
-
-**Default:** 60
-
-#### margin: number (optional)
-
-An optional amount of margin to be rendered within the canvas element. Defaults to 4,
-where the unit is the size of one "dot" in the QR code.
-
-#### scale: number (optional)
-
-Only used when size not provided. Represents the number of pixels per module/dot. Defaults to 4.
-
-#### maskPattern: number (optional)
-
-Mask pattern used. Defaults to selecting the best based on content.
+\*\* _centerImageSrc note:_ the image will obscure part of the QR code, and therefore you should err on the side of a higher error correction level, anecdotally when the size is less than 1/4 of the size of the code, with at least "M" error correction, it is generally still scannable.
 
 ### Directive
 
