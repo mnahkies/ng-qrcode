@@ -112,8 +112,8 @@ There is also a deprecated `QrCodeModule` that can be imported.
 | lightColor      | RGBAColor                  | An RGBA Hex string to use as the color for the empty space. If an invalid value is passed, the default will be used. | white `#FFFFFFFF`
 | style           | { \[klass: string]: any; } | Inline style object, passed to the inner canvas element as `[ngStyle]` |
 | styleClass      | string                     | CSS Class, passed to the inner canvas element |
-| errorCorrectionLevel | string                | Controls the amount of redundant information included to make the QR code more likely to scan correctly if it is dirty / damaged | "M" _Note below:_ \*
-| centerImageSrc  | string                     | A URI suitable to use an a [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) src property to load and render in the center of the QR code. _Note below:_ \*\*
+| errorCorrectionLevel | string                | Controls the amount of redundant information included to make the QR code more likely to scan correctly if it is dirty / damaged <br><br>_Note below:_ \* | "M"
+| centerImageSrc  | string                     | A URI suitable to use an a [Image](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image) src property to load and render in the center of the QR code. <br><br>_Note below:_ \*\*
 | centerImageSize | string \| number           | An optional size in pixels to render the center image. | 60 |
 | margin          | number                     | An optional amount of margin to be rendered within the canvas element. Defaults to 4, where the unit is the size of one "dot" in the QR code.
 | scale           | number                     | Only used when size not provided. Represents the number of pixels per module/dot. Defaults to 4. |
